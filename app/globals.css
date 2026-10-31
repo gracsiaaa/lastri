@@ -1,0 +1,152 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: var(--font-playfair), Georgia, serif;
+  --font-sans: var(--font-inter), system-ui, sans-serif;
+
+  --color-bg-primary: #FFFFFF;
+  --color-bg-secondary: #E8EDE3;
+  --color-brand-accent: #9CAF88;
+  --color-brand-accent-hover: #8A9E78;
+  --color-brand-olive: #2D6A4F;
+  --color-text-primary: #1B1B1B;
+  --color-text-muted: #6B6B6B;
+  --color-border-soft: rgba(0, 0, 0, 0.06);
+
+  --color-cream: #FFFFFF;
+  --color-sand: #E8EDE3;
+  --color-sand-dark: #E0E0E0;
+  --color-terracotta: #1B4332;
+  --color-terracotta-hover: #153F2A;
+  --color-olive: #2D6A4F;
+  --color-slate-dark: #1B1B1B;
+  --color-slate-muted: #6B6B6B;
+}
+
+/* Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: #FFFFFF;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #E0E0E0;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8A9E78;
+}
+
+/* Glassmorphism */
+.glass-nav {
+  background: rgba(255, 255, 255, 0.92);
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
+  border: none !important;
+  border-bottom: none !important;
+  box-shadow: none !important;
+  outline: none !important;
+}
+
+.glass-card {
+  background: rgba(232, 237, 227, 0.85);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+}
+
+.glass-modal {
+  background: #FFFFFF;
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
+  border: 1px solid rgba(0, 0, 0, 0.08);
+}
+
+/* Hide scrollbar for clean tab scrolling */
+.no-scrollbar::-webkit-scrollbar {
+  display: none;
+}
+.no-scrollbar {
+  -ms-overflow-style: none;
+  scrollbar-width: none;
+}
+
+@keyframes pulse-subtle {
+  0%, 100% { transform: scale(1); opacity: 1; }
+  50% { transform: scale(1.05); opacity: 0.9; }
+}
+
+.animate-pulse-subtle {
+  animation: pulse-subtle 3s ease-in-out infinite;
+}
+
+/* Custom Modern Select Dropdown */
+.select-modern {
+  appearance: none;
+  -webkit-appearance: none;
+  -moz-appearance: none;
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%29CAF88%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+  background-repeat: no-repeat;
+  background-position: right 1.25rem center;
+  background-size: 1.1rem;
+  padding-right: 3rem !important;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+.select-modern:hover {
+  border-color: rgba(156, 175, 136, 0.6);
+  background-color: #FFFFFF;
+}
+
+.select-modern:focus {
+  outline: none;
+  border-color: #9CAF88;
+  box-shadow: 0 0 0 4px rgba(156, 175, 136, 0.12);
+  background-color: #FFFFFF;
+}
+
+.select-modern option {
+  background-color: #FFFFFF;
+  color: #1B1B1B;
+  padding: 12px 16px;
+  font-size: 14px;
+}
+
+/* Custom Modern Date Picker */
+input[type="date"].date-modern {
+  color-scheme: light;
+  border-radius: 1rem;
+  transition: all 0.2s ease-in-out;
+}
+
+input[type="date"].date-modern:hover {
+  border-color: rgba(156, 175, 136, 0.6);
+  background-color: #FFFFFF;
+}
+
+input[type="date"].date-modern:focus {
+  outline: none;
+  border-color: #9CAF88;
+  box-shadow: 0 0 0 4px rgba(156, 175, 136, 0.12);
+  background-color: #FFFFFF;
+}
+
+input[type="date"].date-modern::-webkit-calendar-picker-indicator {
+  opacity: 0.75;
+  cursor: pointer;
+  padding: 6px;
+  border-radius: 8px;
+  transition: all 0.2s ease;
+  filter: invert(25%) sepia(30%) saturate(800%) hue-rotate(130deg);
+}
+
+input[type="date"].date-modern::-webkit-calendar-picker-indicator:hover {
+  opacity: 1;
+  background-color: rgba(156, 175, 136, 0.1);
+  transform: scale(1.08);
+}
