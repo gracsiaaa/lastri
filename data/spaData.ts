@@ -142,7 +142,7 @@ export const PHILOSOPHY_CONTENT = {
   },
   title: {
     en: "Enjoy Spa Treatments in the Comfort of Your Private Space",
-    id: "Nikmati Perawatan Spa di Ruang Privat Anda"
+    id: "Nikmati Perawatan Spa di Tempat Anda"
   },
   subtitle: {
     en: "Enjoy a relaxing spa treatment without leaving your space",

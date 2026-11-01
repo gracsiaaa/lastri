@@ -40,8 +40,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </div>
               <p className="text-[11px] sm:text-xs text-[#4A4A4A] font-medium leading-relaxed">
                 {lang === 'en'
-                  ? ""
-                  : ""}
+                  ? "Certified female therapists trained in deep relaxation."
+                  : "Ditangani langsung oleh terapis wanita terlatih dan profesional."}
               </p>
             </div>
 
