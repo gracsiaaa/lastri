@@ -1,9 +1,10 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Language } from '../types';
 import { SPA_INFO, DIRECT_WA_URL } from '../data/spaData';
-import { MapPin, Phone, Mail, Clock, MessageSquare, Calendar } from 'lucide-react';
+import { MapPin, Phone, Clock, MessageSquare, Calendar } from 'lucide-react';
 
 interface BookingSectionProps {
   lang: Language;
@@ -17,8 +18,8 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
   const directWaUrl = DIRECT_WA_URL;
 
   return (
-    <section id="contact" className="py-24 sm:py-32 bg-[#FFFFFF] relative overflow-hidden">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
+    <section id="contact" className="py-20 sm:py-24 bg-[#FFFFFF] relative overflow-hidden">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
         <div className="text-center max-w-3xl mx-auto space-y-4">
           <h2 className="font-sans text-3xl sm:text-5xl text-[#1B1B1B] font-semibold tracking-tight">
             {lang === 'en' ? "Book Lastri Home Spa Services" : "Pesan Layanan Lastri Home Spa"}
@@ -67,16 +68,6 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
                     <p>{SPA_INFO.whatsapp}</p>
                   </div>
                 </div>
-
-                <div className="flex items-start space-x-3.5">
-                  <div className="w-10 h-10 rounded-full bg-[#2D6A4F]/15 text-[#2D6A4F] flex items-center justify-center flex-shrink-0">
-                    <Mail className="w-5 h-5" />
-                  </div>
-                  <div>
-                    <span className="font-semibold text-[#1B1B1B] block">Email</span>
-                    <p>{SPA_INFO.email}</p>
-                  </div>
-                </div>
               </div>
             </div>
 
@@ -102,19 +93,18 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
           </div>
 
           <div className="lg:col-span-7 bg-[#E0E0E0] rounded-3xl overflow-hidden relative min-h-[380px] shadow-sm flex flex-col justify-end border border-[#E0E0E0]">
-            <img
+            <Image
               src="/spa3.jpg"
-              onError={(e) => {
-                (e.target as HTMLImageElement).src = '/spa1.jpg';
-              }}
               alt="Banyuwangi Sanctuary Map Area"
-              className="absolute inset-0 w-full h-full object-cover"
+              fill
+              sizes="(max-width: 1024px) 100vw, 60vw"
+              className="object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent" />
 
             <div className="relative z-10 p-6 sm:p-8 text-white space-y-3">
               <h3 className="font-serif text-2xl sm:text-3xl font-bold">
-                {lang === 'en' ? "Terapis Datang Langsung ke Rumah, Hotel & Vila Anda" : "Terapis Datang Langsung ke Rumah, Hotel & Vila Anda"}
+                {lang === 'en' ? "Therapist Comes Directly to Your Home, Hotel & Villa" : "Terapis Datang Langsung ke Rumah, Hotel & Vila Anda"}
               </h3>
               <p className="text-xs sm:text-sm text-white/85 max-w-lg leading-relaxed font-sans">
                 {lang === 'en'

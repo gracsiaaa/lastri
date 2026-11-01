@@ -1,10 +1,9 @@
 'use client';
 
-import React, { useRef } from 'react';
+import React, { useRef, useEffect } from 'react';
 import { Language } from '../types';
 import { reviewsData } from '../data/reviews';
-import { Star, ChevronLeft, ChevronRight, Quote, Calendar } from 'lucide-react';
-import { motion } from 'framer-motion';
+import { Star, ChevronLeft, ChevronRight, Quote, Clock } from 'lucide-react';
 
 interface ReviewsProps {
   lang: Language;
@@ -12,13 +11,59 @@ interface ReviewsProps {
 
 export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
   const scrollRef = useRef<HTMLDivElement>(null);
+  const isInteractingRef = useRef<boolean>(false);
+  const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
+  // Triple data list for seamless infinite loop scroll
+  const loopedReviews = [...reviewsData, ...reviewsData, ...reviewsData];
+
+  // Manual scroll with buttons
   const handleScroll = (direction: 'left' | 'right') => {
-    if (scrollRef.current) {
-      const scrollAmount = direction === 'left' ? -380 : 380;
-      scrollRef.current.scrollBy({ left: scrollAmount, behavior: 'smooth' });
-    }
+    const el = scrollRef.current;
+    if (!el) return;
+    isInteractingRef.current = true;
+    if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+
+    const step = 380;
+    el.scrollBy({ left: direction === 'left' ? -step : step, behavior: 'smooth' });
+
+    resumeTimeoutRef.current = setTimeout(() => {
+      isInteractingRef.current = false;
+    }, 2000);
   };
+
+  // Infinite continuous loop effect using requestAnimationFrame
+  useEffect(() => {
+    const el = scrollRef.current;
+    if (!el) return;
+
+    let animId: number;
+
+    const tick = () => {
+      if (!isInteractingRef.current) {
+        // One-third width is the exact length of one full set of items
+        const singleSetWidth = el.scrollWidth / 3;
+
+        // When scrolled past the first set or before it, wrap around seamlessly
+        if (el.scrollLeft >= singleSetWidth * 2) {
+          el.scrollLeft -= singleSetWidth;
+        } else if (el.scrollLeft <= 0) {
+          el.scrollLeft += singleSetWidth;
+        }
+
+        // Constant smooth drift (0.75px per frame)
+        el.scrollLeft += 0.75;
+      }
+      animId = requestAnimationFrame(tick);
+    };
+
+    animId = requestAnimationFrame(tick);
+
+    return () => {
+      cancelAnimationFrame(animId);
+      if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+    };
+  }, []);
 
   return (
     <section id="reviews" className="py-24 sm:py-32 bg-[#FFFFFF] relative overflow-hidden">
@@ -29,7 +74,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
               {lang === 'en' ? "Stories of Pure Relaxation" : "Pengalaman Relaksasi Autentik"}
             </h2>
             <p className="text-base sm:text-lg text-[#9CAF88] font-medium italic">
-              "Cerita Relaksasi Dari Tamu Kami"
+              {lang === 'en' ? '"Words of Relaxation from Our Guests"' : '"Cerita Relaksasi Dari Tamu Kami"'}
             </p>
           </div>
 
@@ -53,31 +98,30 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
 
         <div
           ref={scrollRef}
-          className="flex gap-6 overflow-x-auto snap-x snap-mandatory pb-6 pt-2 no-scrollbar scroll-smooth"
+          onMouseEnter={() => { isInteractingRef.current = true; }}
+          onMouseLeave={() => { isInteractingRef.current = false; }}
+          onTouchStart={() => { isInteractingRef.current = true; }}
+          onTouchEnd={() => {
+            if (resumeTimeoutRef.current) clearTimeout(resumeTimeoutRef.current);
+            resumeTimeoutRef.current = setTimeout(() => {
+              isInteractingRef.current = false;
+            }, 1500);
+          }}
+          className="flex gap-6 overflow-x-auto pb-6 pt-2 no-scrollbar"
         >
-          {reviewsData.map((review, i) => (
-            <motion.div
-              key={review.id}
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true }}
-              transition={{ duration: 0.4, delay: i * 0.1 }}
-              className="snap-start flex-shrink-0 w-[88%] sm:w-[350px] lg:w-[calc(33.333%-16px)] bg-[#E8EDE3] rounded-2xl p-6 sm:p-7 border border-[#1B1B1B]/10 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-6"
+          {loopedReviews.map((review, i) => (
+            <div
+              key={`${review.id}-${i}`}
+              className="flex-shrink-0 w-[88%] sm:w-[350px] lg:w-[calc(33.333%-16px)] bg-[#E8EDE3] rounded-2xl p-6 sm:p-7 border border-[#1B1B1B]/10 shadow-[0_2px_12px_rgba(0,0,0,0.04)] hover:shadow-md transition-shadow duration-300 flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
-                <div className="flex flex-wrap items-center justify-between gap-2">
-                  <div className="flex items-center space-x-1">
-                    {[...Array(review.rating)].map((_, s) => (
-                      <Star
-                        key={s}
-                        className="w-4 h-4 text-[#9CAF88] fill-[#9CAF88]"
-                      />
-                    ))}
-                  </div>
-
-                  <span className="text-[11px] font-medium tracking-wide text-[#2D6A4F] bg-[#2D6A4F]/15 px-3 py-1 rounded-full border border-[#2D6A4F]/20 inline-block">
-                    {review.treatmentName}
-                  </span>
+                <div className="flex items-center space-x-1">
+                  {[...Array(review.rating)].map((_, s) => (
+                    <Star
+                      key={s}
+                      className="w-4 h-4 text-[#9CAF88] fill-[#9CAF88]"
+                    />
+                  ))}
                 </div>
 
                 <div className="relative">
@@ -104,18 +148,14 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
                     <h4 className="font-sans text-base text-[#1B1B1B] font-semibold leading-snug truncate">
                       {review.name}
                     </h4>
-                    <span className="text-xs text-[#6B6B6B] block truncate">
-                      {review.roleOrLocation}
+                    <span className="text-xs text-[#6B6B6B] flex items-center space-x-1 truncate mt-0.5">
+                      <Clock className="w-3 h-3 text-[#2D6A4F] shrink-0" />
+                      <span>{review.timeAgo}</span>
                     </span>
                   </div>
                 </div>
-
-                <div className="text-[11px] text-[#6B6B6B] flex-shrink-0 flex items-center space-x-1 bg-[#FFFFFF] px-2.5 py-1 rounded-md border border-[#E0E0E0]/60">
-                  <Calendar className="w-3 h-3 text-[#2D6A4F]" />
-                  <span>{review.date}</span>
-                </div>
               </div>
-            </motion.div>
+            </div>
           ))}
         </div>
       </div>

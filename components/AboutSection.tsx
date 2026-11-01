@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { Language } from '../types';
 import { PHILOSOPHY_CONTENT } from '../data/spaData';
 import { Leaf, ArrowRight, Award } from 'lucide-react';
@@ -20,13 +21,12 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-6 relative">
             <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-4/3 sm:aspect-16/10 lg:aspect-4/3 max-h-[420px]">
-              <img
+              <Image
                 src="/spa6.jpg"
-                onError={(e) => {
-                  (e.target as HTMLImageElement).src = '/spa1.jpg';
-                }}
                 alt="Sanctuary Organic Botanical Healing"
-                className="w-full h-full object-cover"
+                fill
+                sizes="(max-width: 1024px) 100vw, 50vw"
+                className="object-cover"
               />
               <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
             </div>
@@ -40,8 +40,8 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
               </div>
               <p className="text-[11px] sm:text-xs text-[#4A4A4A] font-medium leading-relaxed">
                 {lang === 'en'
-                  ? "Certified female therapists trained in deep relaxation."
-                  : "Ditangani langsung oleh terapis wanita terlatih dan profesional."}
+                  ? "Over 10+ years dedicated to wellness."
+                  : "Lebih dari 10 tahun berdedikasi dalam kebugaran."}
               </p>
             </div>
 

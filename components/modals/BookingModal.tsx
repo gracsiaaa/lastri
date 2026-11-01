@@ -112,6 +112,7 @@ interface CustomDatePickerProps {
   minDateStr?: string;
   error?: boolean;
   position?: 'down' | 'up';
+  lang?: Language;
 }
 
 const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
@@ -121,6 +122,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   minDateStr,
   error,
   position = 'down',
+  lang = 'id',
 }) => {
   const [isOpen, setIsOpen] = useState(false);
   const containerRef = useRef<HTMLDivElement>(null);
@@ -141,10 +143,15 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
   const year = currentViewDate.getFullYear();
   const month = currentViewDate.getMonth();
 
-  const monthNames = [
+  const monthNamesId = [
     'Januari', 'Februari', 'Maret', 'April', 'Mei', 'Juni',
     'Juli', 'Agustus', 'September', 'Oktober', 'November', 'Desember'
   ];
+  const monthNamesEn = [
+    'January', 'February', 'March', 'April', 'May', 'June',
+    'July', 'August', 'September', 'October', 'November', 'December'
+  ];
+  const monthNames = lang === 'en' ? monthNamesEn : monthNamesId;
 
   const daysInMonth = new Date(year, month + 1, 0).getDate();
   const firstDayIndex = new Date(year, month, 1).getDay();
@@ -167,9 +174,11 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
     const selectedIso = `${year}-${pad(month + 1)}-${pad(day)}`;
 
     const dateObj = new Date(year, month, day);
-    const dayName = dateObj.toLocaleDateString('id-ID', { weekday: 'long' });
+    const dayName = dateObj.toLocaleDateString(lang === 'en' ? 'en-US' : 'id-ID', { weekday: 'long' });
     const monthName = monthNames[month];
-    const formatted = `${dayName}, ${day} ${monthName} ${year}`;
+    const formatted = lang === 'en'
+      ? `${dayName}, ${monthName} ${day}, ${year}`
+      : `${dayName}, ${day} ${monthName} ${year}`;
 
     onChange(selectedIso, formatted);
     setIsOpen(false);
@@ -197,7 +206,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         }`}
       >
         <span className={formattedText ? 'text-[#1B1B1B]' : 'text-[#7A8A7E]'}>
-          {formattedText || 'Pilih Hari & Tanggal...'}
+          {formattedText || (lang === 'en' ? 'Select Date...' : 'Pilih Hari & Tanggal...')}
         </span>
         <svg
           className="w-4 h-4 text-[#9CAF88]"
@@ -332,12 +341,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   });
 
   // Helper date formatters
-  const formatDateToIndonesian = (isoStr: string) => {
+  const formatDateLocale = (isoStr: string) => {
     if (!isoStr) return '';
     try {
       const d = new Date(isoStr + 'T00:00:00');
       if (isNaN(d.getTime())) return isoStr;
-      return d.toLocaleDateString('id-ID', {
+      return d.toLocaleDateString(lang === 'en' ? 'en-US' : 'id-ID', {
         weekday: 'long',
         day: 'numeric',
         month: 'long',
@@ -355,7 +364,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       setErrors({});
       const tomorrowStr = new Date(Date.now() + 86400000).toISOString().split('T')[0];
       setRawIsoDate(tomorrowStr);
-      const formattedTomorrow = formatDateToIndonesian(tomorrowStr);
+      const formattedTomorrow = formatDateLocale(tomorrowStr);
 
       let initialList: string[] = [];
       let defaultPeople = '1 Orang';
@@ -452,7 +461,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
   const handleDateChange = (isoStr: string) => {
     setRawIsoDate(isoStr);
-    const formatted = formatDateToIndonesian(isoStr);
+    const formatted = formatDateLocale(isoStr);
     setFormData((prev) => ({ ...prev, hariTanggal: formatted }));
     if (errors.hariTanggal) {
       setErrors((prev) => ({ ...prev, hariTanggal: '' }));
@@ -565,7 +574,15 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <button
                 type="button"
                 data-step={s.num}
-                onClick={() => setStep(s.num as 1 | 2 | 3)}
+                onClick={() => {
+                  if (s.num === 1) {
+                    setStep(1);
+                  } else if (s.num === 2) {
+                    if (validateStep1()) setStep(2);
+                  } else if (s.num === 3) {
+                    if (validateStep1() && validateStep2()) setStep(3);
+                  }
+                }}
                 className={`flex items-center space-x-1.5 text-xs font-semibold transition-colors cursor-pointer shrink-0 px-2.5 py-1 rounded-full ${
                   step === s.num
                     ? 'bg-[#2D6A4F] text-white shadow-xs'
@@ -693,21 +710,25 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   {lang === 'en' ? "Number of People *" : "Jumlah Orang *"}
                 </label>
                 <div className="grid grid-cols-3 gap-2.5 text-xs sm:text-sm">
-                  {['1 Orang', '2 Orang', '3+ Orang'].map((num) => (
+                  {[
+                    { val: '1 Orang', label: lang === 'en' ? '1 Person' : '1 Orang' },
+                    { val: '2 Orang', label: lang === 'en' ? '2 People' : '2 Orang' },
+                    { val: '3+ Orang', label: lang === 'en' ? '3+ People' : '3+ Orang' },
+                  ].map((item) => (
                     <button
-                      key={num}
+                      key={item.val}
                       type="button"
                       onClick={() => {
-                        setFormData((p) => ({ ...p, jumlahOrang: num }));
+                        setFormData((p) => ({ ...p, jumlahOrang: item.val }));
                         if (errors.jumlahOrang) setErrors((prev) => ({ ...prev, jumlahOrang: '' }));
                       }}
                       className={`py-3 px-2 rounded-xl border text-center transition-all min-h-[44px] cursor-pointer ${
-                        formData.jumlahOrang === num
+                        formData.jumlahOrang === item.val
                           ? 'bg-[#9CAF88] border-[#9CAF88] text-white font-semibold shadow-xs'
                           : 'bg-white border-[#1B1B1B]/10 text-[#6B6B6B] hover:border-[#9CAF88]'
                       }`}
                     >
-                      {num}
+                      {item.label}
                     </button>
                   ))}
                 </div>
@@ -736,10 +757,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       if (errors.tipeLokasi) setErrors((prev) => ({ ...prev, tipeLokasi: '' }));
                     }}
                     options={[
-                      { value: 'Rumah', label: 'Rumah Pribadi' },
-                      { value: 'Hotel', label: 'Hotel / Resort' },
-                      { value: 'Vila', label: 'Vila Pribadi' },
-                      { value: 'Lainnya', label: 'Lokasi Lainnya' },
+                      { value: 'Rumah', label: lang === 'en' ? 'Private Residence' : 'Rumah Pribadi' },
+                      { value: 'Hotel', label: lang === 'en' ? 'Hotel / Resort' : 'Hotel / Resort' },
+                      { value: 'Vila', label: lang === 'en' ? 'Private Villa' : 'Vila Pribadi' },
+                      { value: 'Lainnya', label: lang === 'en' ? 'Other Location' : 'Lokasi Lainnya' },
                     ]}
                     error={!!errors.tipeLokasi}
                   />
@@ -768,7 +789,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       { value: 'Licin', label: 'Licin' },
                       { value: 'Kabat', label: 'Kabat' },
                       { value: 'Rogojampi', label: 'Rogojampi' },
-                      { value: 'Opsi Lainnya', label: 'Opsi Lainnya' },
+                      { value: 'Opsi Lainnya', label: lang === 'en' ? 'Other Area' : 'Opsi Lainnya' },
                     ]}
                     error={!!errors.area}
                   />
@@ -812,6 +833,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     position="up"
                     value={rawIsoDate}
                     formattedText={formData.hariTanggal}
+                    lang={lang}
                     onChange={(isoDate, formatted) => {
                       setRawIsoDate(isoDate);
                       setFormData((p) => ({ ...p, hariTanggal: formatted }));

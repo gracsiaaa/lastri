@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Language } from '../types';
 import { Treatment, treatmentsData } from '../data/treatments';
 import { Clock, Plus, Eye, ChevronRight } from 'lucide-react';
@@ -51,7 +52,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
         </div>
 
         {/* Category Pills */}
-        <div className="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 pb-2">
+        <div className="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 pb-2 -mt-4 sm:-mt-6">
           {categories.map((cat) => (
             <button
               key={cat}
@@ -90,17 +91,15 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                 >
                   <div>
                     <div className="relative h-56 overflow-hidden bg-[#FFFFFF]">
-                      <img
+                      <Image
                         src={currentImg}
-                        onError={() => handleImageError(treatmentId)}
                         alt={treatment.name}
-                        className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
+                        fill
+                        sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                        className="object-cover group-hover:scale-105 transition-transform duration-500"
+                        onError={() => handleImageError(treatmentId)}
                       />
                       <div className="absolute inset-0 bg-gradient-to-t from-black/60 via-transparent to-transparent" />
-
-                      <span className="absolute top-4 left-4 bg-[#2D6A4F]/80 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-3 py-1 rounded-full shadow-xs">
-                        {treatment.category}
-                      </span>
 
                       {/* Tombol Plus Mengarah Langsung ke Pesan Sekarang */}
                       <button
@@ -115,22 +114,25 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                         <Plus className="w-5 h-5 transition-transform duration-300 group-hover/plus:rotate-90" />
                       </button>
 
-                      <div className="absolute bottom-4 left-4 right-4 flex items-center justify-between text-white text-xs font-medium">
+                      <div className="absolute bottom-4 left-4 right-4 flex items-center gap-2 text-white text-xs font-medium">
+                        <span className="bg-[#2D6A4F]/80 backdrop-blur-md text-white text-[10px] font-semibold tracking-wider uppercase px-2.5 py-1 rounded-full shadow-xs">
+                          {treatment.category}
+                        </span>
                         <span className="flex items-center space-x-1 bg-black/40 backdrop-blur-md px-2.5 py-1 rounded-full border border-white/20">
                           <Clock className="w-3.5 h-3.5 text-[#9CAF88]" />
-                          <span>{treatment.duration}</span>
+                          <span>{typeof treatment.duration === 'string' ? treatment.duration : treatment.duration[lang]}</span>
                         </span>
                       </div>
                     </div>
 
-                    <div className="p-5 pb-3 space-y-2">
-                      <h3 className="font-serif text-xl sm:text-2xl text-[#1B1B1B] font-semibold leading-tight group-hover:text-[#9CAF88] transition-colors min-h-[56px] flex items-center">
+                    <div className="p-5 pt-3.5 pb-2.5 space-y-1.5">
+                      <h3 className="font-serif text-lg sm:text-xl text-[#1B1B1B] font-semibold leading-snug group-hover:text-[#9CAF88] transition-colors min-h-[48px] flex items-center">
                         {treatment.name}
                       </h3>
 
                       {/* Tepat 2 baris agar spacing rapi dan proporsional */}
-                      <p className="text-xs sm:text-sm text-[#6B6B6B] line-clamp-2 leading-relaxed min-h-[40px]">
-                        {treatment.shortDesc}
+                      <p className="text-xs sm:text-[13px] text-[#6B6B6B] line-clamp-2 leading-relaxed min-h-[38px] px-0.5">
+                        {typeof treatment.shortDesc === 'string' ? treatment.shortDesc : treatment.shortDesc[lang]}
                       </p>
                     </div>
                   </div>

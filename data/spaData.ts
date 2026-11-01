@@ -725,7 +725,7 @@ export const THERAPISTS: Therapist[] = [
     name: "Terapis Lastri Ayu",
     title: { en: "Founder & Master Therapist (10+ Yrs Exp)", id: "Pendiri & Terapis Master Berlisensi (10+ Thn)" },
     experience: "10+ Years",
-    photo: "/spa7.jpg",
+    photo: "/lastri.png",
     bio: {
       en: "Lastri Spa Home Service offers a selection of treatments, including traditional Balinese massage, deep tissue massage, and herbal body scrubs. Each treatment is personally delivered by the therapist, with careful attention to comfort, privacy, and hygiene.",
       id: "Lastri Spa Home Service menawarkan berbagai perawatan, mulai dari pijat tradisional Bali, deep tissue, hingga lulur rempah. Setiap perawatan dilakukan secara personal oleh terapis dengan memperhatikan kenyamanan, privasi, dan kebersihan selama layanan berlangsung."

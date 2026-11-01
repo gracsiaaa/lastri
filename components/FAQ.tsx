@@ -22,7 +22,7 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-4">
           <h2 className="font-sans text-3xl sm:text-5xl text-[#1B1B1B] font-semibold tracking-tight">
-            {lang === 'en' ? "Pertanyaan Umum (FAQ)" : "Pertanyaan Umum (FAQ)"}
+            {lang === 'en' ? "Frequently Asked Questions" : "Pertanyaan Umum (FAQ)"}
           </h2>
           <p className="text-sm sm:text-base text-[#6B6B6B] font-light">
             {lang === 'en'

@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { BaseModal } from './BaseModal';
 import { Treatment } from '../../data/treatments';
 import { getWhatsAppUrl } from '../../data/spaData';
@@ -39,19 +40,21 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
       isOpen={isOpen}
       onClose={onClose}
       title={treatment.name}
-      subtitle={treatment.shortDesc}
+      subtitle={typeof treatment.shortDesc === 'string' ? treatment.shortDesc : treatment.shortDesc[lang]}
       maxWidth="max-w-3xl"
     >
       <div className="space-y-6">
         <div className="space-y-4">
           <div className="relative rounded-2xl overflow-hidden h-56 sm:h-72 group shadow-sm border border-[#E0E0E0]">
-            <img
+            <Image
               src={currentImg}
+              alt={treatment.name}
+              fill
+              sizes="(max-width: 768px) 100vw, 768px"
+              className="object-cover"
               onError={() => {
                 setImgSrc(treatment.fallbackImage || '/spa1.jpg');
               }}
-              alt={treatment.name}
-              className="w-full h-full object-cover"
             />
             <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
               <div className="w-full flex items-center justify-between gap-3 text-white">
@@ -61,7 +64,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
                   </span>
                   <span className="flex items-center space-x-1.5 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium border border-white/20">
                     <Clock className="w-3.5 h-3.5 text-[#9CAF88]" />
-                    <span>{treatment.duration}</span>
+                    <span>{typeof treatment.duration === 'string' ? treatment.duration : treatment.duration[lang]}</span>
                   </span>
                 </div>
               </div>
@@ -70,7 +73,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
         </div>
 
         <p className="text-sm sm:text-[15px] text-[#4A4A4A] leading-relaxed -mt-1.5 font-normal">
-          {treatment.fullDesc}
+          {typeof treatment.fullDesc === 'string' ? treatment.fullDesc : treatment.fullDesc[lang]}
         </p>
 
         <div className="space-y-3">
@@ -78,7 +81,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
             {lang === 'en' ? "Benefits" : "Manfaat Utama"}
           </h4>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
-            {treatment.benefits.map((benefit, idx) => (
+            {(Array.isArray(treatment.benefits) ? treatment.benefits : treatment.benefits[lang]).map((benefit, idx) => (
               <li key={idx} className="flex items-start space-x-2 text-[#6B6B6B]">
                 <Check className="w-4 h-4 text-[#9CAF88] flex-shrink-0 mt-0.5" />
                 <span>{benefit}</span>
@@ -92,7 +95,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
             {lang === 'en' ? "Ritual Steps" : "Tahapan Ritual Spa"}
           </h4>
           <div className="space-y-2.5">
-            {treatment.steps.map((step, idx) => (
+            {(Array.isArray(treatment.steps) ? treatment.steps : treatment.steps[lang]).map((step, idx) => (
               <div
                 key={idx}
                 className="flex items-center space-x-4 p-3.5 rounded-xl bg-[#E8EDE3] border border-[#1B1B1B]/10 text-xs sm:text-sm"

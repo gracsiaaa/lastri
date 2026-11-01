@@ -1,6 +1,7 @@
 'use client';
 
 import React from 'react';
+import Image from 'next/image';
 import { BaseModal } from './BaseModal';
 import { PHILOSOPHY_CONTENT, THERAPISTS } from '../../data/spaData';
 import { Language } from '../../types';
@@ -85,11 +86,13 @@ export const AboutModal: React.FC<AboutModalProps> = ({
               key={therapist.id}
               className="flex flex-col sm:flex-row items-stretch gap-4 sm:gap-5 p-4 sm:p-4.5 rounded-2xl bg-[#E8EDE3] border border-[#1B1B1B]/10 shadow-[0_2px_12px_rgba(0,0,0,0.04)] w-full"
             >
-              <div className="w-full sm:w-36 md:w-40 lg:w-44 h-48 sm:h-auto rounded-xl overflow-hidden flex-shrink-0 relative border border-[#1B1B1B]/10 shadow-xs self-stretch">
-                <img
+              <div className="w-full sm:w-36 md:w-40 lg:w-44 h-48 sm:h-auto min-h-[180px] rounded-xl overflow-hidden flex-shrink-0 relative border border-[#1B1B1B]/10 shadow-xs self-stretch">
+                <Image
                   src={therapist.photo}
                   alt={therapist.name}
-                  className="w-full h-full object-cover"
+                  fill
+                  sizes="(max-width: 640px) 100vw, 180px"
+                  className="object-cover"
                 />
               </div>
               <div className="flex-1 space-y-2.5 w-full flex flex-col justify-between">

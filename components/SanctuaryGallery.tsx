@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
+import Image from 'next/image';
 import { Language, GalleryItem } from '../types';
 import { GALLERY_ITEMS } from '../data/spaData';
 import { Maximize2 } from 'lucide-react';
@@ -55,7 +56,7 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
           </p>
         </div>
 
-        <div className="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 pb-2">
+        <div className="flex items-center justify-start sm:justify-center overflow-x-auto no-scrollbar gap-2 pb-2 -mt-4 sm:-mt-6">
           {filters.map((f) => (
             <button
               key={f.id}
@@ -86,13 +87,12 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
                 onClick={() => onOpenLightbox(item)}
                 className="group relative rounded-2xl overflow-hidden cursor-pointer aspect-4/3 sm:aspect-square bg-[#E8EDE3] shadow-[0_2px_12px_rgba(0,0,0,0.04)] border border-[#1B1B1B]/10"
               >
-                <img
+                <Image
                   src={item.image || '/spa1.jpg'}
-                  onError={(e) => {
-                    (e.target as HTMLImageElement).src = '/spa1.jpg';
-                  }}
                   alt={item.title[lang]}
-                  className="w-full h-full object-cover group-hover:scale-108 transition-transform duration-700"
+                  fill
+                  sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
+                  className="object-cover group-hover:scale-108 transition-transform duration-700"
                 />
 
                 <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/30 to-transparent opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex flex-col justify-between p-6 text-white">
