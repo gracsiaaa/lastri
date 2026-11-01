@@ -4,7 +4,7 @@ import React from 'react';
 import { BaseModal } from './BaseModal';
 import { PHILOSOPHY_CONTENT, THERAPISTS } from '../../data/spaData';
 import { Language } from '../../types';
-import { Leaf, ShieldCheck, Sparkles, ShieldCheck as ShieldIcon, Clock, HeartHandshake } from 'lucide-react';
+import { Leaf, ShieldCheck, Sparkles } from 'lucide-react';
 
 interface AboutModalProps {
   isOpen: boolean;
@@ -31,36 +31,6 @@ export const AboutModal: React.FC<AboutModalProps> = ({
     }
   };
 
-  const etiquetteItems = [
-    {
-      num: "01",
-      icon: Clock,
-      title: { en: "Arrival & Readiness", id: "Kesiapan Jadwal" },
-      desc: {
-        en: "Be ready at your room/villa 10–15 minutes before the session starts.",
-        id: "Mohon bersiap di kediaman/kamar 10–15 menit sebelum sesi dimulai."
-      }
-    },
-    {
-      num: "02",
-      icon: ShieldIcon,
-      title: { en: "100% Professional Therapy", id: "100% Terapi Resmi" },
-      desc: {
-        en: "Strictly wellness & healing bodywork. All non-therapeutic requests are declined.",
-        id: "Murni terapi kebugaran & kesehatan. Segala permintaan non-terapeutik ditolak tegas."
-      }
-    },
-    {
-      num: "03",
-      icon: HeartHandshake,
-      title: { en: "Health & Privacy", id: "Privasi & Riwayat" },
-      desc: {
-        en: "Pregnancy or sensitive medical details are held in absolute confidentiality.",
-        id: "Riwayat alergi, kehamilan, dan data pribadi Anda dijaga secara penuh."
-      }
-    }
-  ];
-
   return (
     <BaseModal
       isOpen={isOpen}
@@ -72,8 +42,8 @@ export const AboutModal: React.FC<AboutModalProps> = ({
       <div className="space-y-8 text-[#1B1B1B]">
         {/* Intro Quote Banner */}
         <div className="relative rounded-2xl overflow-hidden p-6 sm:p-8 bg-gradient-to-br from-[#E8EDE3] to-[#FFFFFF] border border-[#1B1B1B]/10">
-          <p className="font-serif text-2xl sm:text-3xl text-[#9CAF88] font-semibold leading-relaxed italic mb-3.5 sm:mb-4">
-            &ldquo;{PHILOSOPHY_CONTENT.subtitle[lang]}&rdquo;
+          <p className="font-serif text-2xl sm:text-3xl text-[#9CAF88] font-medium leading-relaxed italic mb-3.5 sm:mb-4">
+            &quot;{PHILOSOPHY_CONTENT.subtitle[lang]}&quot;
           </p>
           <p className="text-sm sm:text-base text-[#6B6B6B] leading-relaxed">
             {PHILOSOPHY_CONTENT.story[lang]}
@@ -128,7 +98,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                     <h5 className="font-sans text-base sm:text-lg text-[#1B1B1B] font-semibold">
                       {therapist.name}
                     </h5>
-                    <span className="px-2.5 py-0.5 rounded-full text-xs font-medium bg-[#9CAF88]/15 text-[#9CAF88]">
+                    <span className="px-3 py-1 rounded-full text-xs font-semibold bg-[#2D6A4F] text-white shadow-xs">
                       {therapist.experience}
                     </span>
                   </div>
@@ -151,35 +121,28 @@ export const AboutModal: React.FC<AboutModalProps> = ({
           ))}
         </div>
 
-        {/* Tata Tertib / Ketentuan Layanan (Konsep Editorial Monokrom Tanpa Garis Vertikal) */}
-        <div className="pt-6 border-t border-[#1B1B1B]/10 space-y-5">
-          <div className="flex flex-col sm:flex-row sm:items-center justify-between gap-1">
-            <span className="font-serif text-lg font-semibold text-[#1B1B1B]">
-              {lang === 'en' ? "Important Service Etiquette" : "Ketentuan Layanan Lastri Spa"}
-            </span>
-          </div>
-
-          <div className="grid grid-cols-1 sm:grid-cols-3 gap-6">
-            {etiquetteItems.map((item, idx) => {
-              const ItemIcon = item.icon;
-              return (
-                <div key={idx} className="space-y-2">
-                  <div className="flex items-center space-x-2">
-                    <span className="font-serif text-xs font-bold text-[#9CAF88] tracking-widest">
-                      {item.num}
-                    </span>
-                    <span className="w-1 h-1 rounded-full bg-[#1B1B1B]/30" />
-                    <span className="font-sans text-sm font-semibold text-[#1B1B1B]">
-                      {item.title[lang]}
-                    </span>
-                  </div>
-                  <p className="text-xs sm:text-[13px] text-[#6B6B6B] leading-relaxed">
-                    {item.desc[lang]}
-                  </p>
-                </div>
-              );
-            })}
-          </div>
+        {/* Tata Tertib Layanan Home Service */}
+        <div className="px-4 sm:px-5 pt-0 pb-1 -mt-2 space-y-3">
+          <h5 className="font-sans text-base font-semibold text-[#1B1B1B]">
+            {lang === 'en' ? "Home Service Etiquette" : "Tata Tertib Layanan Home Service"}
+          </h5>
+          <ul className="space-y-2 text-xs sm:text-sm text-[#6B6B6B] list-disc list-inside leading-relaxed">
+            <li>
+              {lang === 'en'
+                ? "Please be at your home, hotel, or villa 10–15 minutes before schedule. Therapist Lastri prepares all sterile equipment at your location."
+                : "Mohon berada di kediaman, hotel, atau vila Anda 10–15 menit sebelum jadwal. Terapis Lastri menyiapkan seluruh peralatan steril di lokasi Anda."}
+            </li>
+            <li>
+              {lang === 'en'
+                ? "Our service is 100% strictly professional health & relaxation therapy with disposable underwear and sterile linen."
+                : "Layanan kami 100% murni terapi kesehatan & relaksasi profesional dengan celana sekali pakai dan kain linen steril."}
+            </li>
+            <li>
+              {lang === 'en'
+                ? "Health conditions, allergies, or pregnancy details are kept strictly confidential."
+                : "Kondisi kesehatan, alergi, atau kehamilan akan dijaga kerahasiaannya."}
+            </li>
+          </ul>
         </div>
       </div>
     </BaseModal>
