@@ -68,7 +68,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-2xl mx-auto text-base sm:text-lg text-[#E0E0E0] font-normal leading-relaxed drop-shadow-sm"
+          className="max-w-2xl mx-auto text-base sm:text-lg text-white font-normal leading-relaxed drop-shadow"
         >
           {SPA_INFO.subtagline[lang]}
         </motion.p>

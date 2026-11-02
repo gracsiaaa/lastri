@@ -49,7 +49,7 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
           <h2 className="font-sans text-3xl sm:text-5xl text-[#1B1B1B] font-semibold tracking-tight">
             {lang === 'en' ? "Lastri Spa Gallery" : "Galeri Lastri Spa"}
           </h2>
-          <p className="text-sm sm:text-base text-[#6B6B6B] font-light">
+          <p className="text-sm sm:text-base text-[#3A3A3A] font-normal">
             {lang === 'en'
               ? "Explore our sterile equipment setups, pure organic ingredients, and comfortable care sessions."
               : "Lihat kesiapan perlengkapan steril, racikan bahan alami murni, dan kenyamanan sesi perawatan."}
@@ -64,7 +64,7 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
               className={`px-5 py-2 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[44px] ${
                 activeFilter === f.id
                   ? 'bg-[#9CAF88] text-white shadow-xs'
-                  : 'bg-[#E8EDE3] text-[#6B6B6B] hover:text-[#1B1B1B] border border-[#1B1B1B]/10'
+                  : 'bg-[#E8EDE3] text-[#2C2C2C] hover:text-[#1B1B1B] border border-[#1B1B1B]/15'
               }`}
             >
               {f.label}

@@ -44,7 +44,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
           <h2 className="font-sans text-3xl sm:text-5xl text-[#1B1B1B] font-semibold tracking-tight">
             {lang === 'en' ? "Holistic Treatment Menu" : "Menu Perawatan Spa"}
           </h2>
-          <p className="text-sm sm:text-base text-[#6B6B6B] font-light">
+          <p className="text-sm sm:text-base text-[#3A3A3A] font-normal">
             {lang === 'en'
               ? "Select from our specialized massage, facial, body, and specialty therapies. Click any card to view full details."
               : "Pilih perawatan pijat, facial, lulur tubuh, atau terapi spesial kami. Klik kartu untuk melihat rincian lengkap ritual."}
@@ -60,7 +60,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
               className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-medium transition-all whitespace-nowrap min-h-[44px] cursor-pointer ${
                 activeCategory === cat
                   ? 'bg-[#9CAF88] text-white shadow-md'
-                  : 'bg-[#E8EDE3] text-[#6B6B6B] hover:text-[#1B1B1B] border border-[#1B1B1B]/10'
+                  : 'bg-[#E8EDE3] text-[#2C2C2C] hover:text-[#1B1B1B] border border-[#1B1B1B]/15'
               }`}
             >
               {cat === 'All' ? (lang === 'en' ? 'All Categories' : 'Semua Kategori') : cat}
@@ -131,7 +131,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                       </h3>
 
                       {/* Tepat 2 baris agar spacing rapi dan proporsional */}
-                      <p className="text-xs sm:text-[13px] text-[#6B6B6B] line-clamp-2 leading-relaxed min-h-[38px] px-0.5">
+                      <p className="text-[13px] sm:text-sm text-[#3A3A3A] font-normal line-clamp-2 leading-relaxed min-h-[40px] px-0.5">
                         {typeof treatment.shortDesc === 'string' ? treatment.shortDesc : treatment.shortDesc[lang]}
                       </p>
                     </div>

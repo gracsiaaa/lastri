@@ -24,7 +24,7 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
           <h2 className="font-sans text-3xl sm:text-5xl text-[#1B1B1B] font-semibold tracking-tight">
             {lang === 'en' ? "Frequently Asked Questions" : "Pertanyaan Umum (FAQ)"}
           </h2>
-          <p className="text-sm sm:text-base text-[#6B6B6B] font-light">
+          <p className="text-sm sm:text-base text-[#3A3A3A] font-normal">
             {lang === 'en'
               ? "General information and frequently asked questions regarding Lastri Spa Home Service."
               : "Informasi dan pertanyaan umum terkait Lastri Spa Home Service."}
@@ -64,7 +64,7 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-4 sm:px-5 py-3.5 sm:py-4 text-xs sm:text-sm text-[#6B6B6B] leading-relaxed border-t border-[#1B1B1B]/10">
+                      <div className="px-4 sm:px-5 py-3.5 sm:py-4 text-[13px] sm:text-base text-[#3A3A3A] font-normal leading-relaxed border-t border-[#1B1B1B]/10">
                         {faq.answer[lang]}
                       </div>
                     </motion.div>

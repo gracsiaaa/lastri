@@ -321,5 +321,92 @@ export const treatmentsData: Treatment[] = [
       id: ["Aplikasi masker rambut nutrisi merata", "Pijatan relaksasi kulit kepala & pundak", "Peresapan nutrisi", "Penyelesaian bilasan segar"],
       en: ["Even conditioning mask application", "Scalp & shoulder relaxation massage", "Nutrient infusion resting time", "Fresh clean finishing rinse"]
     }
+  },
+  {
+    id: "couple-massage",
+    name: "Couple Massage",
+    category: "Massage",
+    shortDesc: {
+      id: "Pengalaman pijat relaksasi berdua dalam satu ruangan privat yang tenang dan intim.",
+      en: "Harmonious side-by-side relaxation massage experience in a peaceful private setting."
+    },
+    fullDesc: {
+      id: "Sesi relaksasi istimewa untuk dinikmati bersama pasangan dalam satu ruangan privat yang nyaman. Mengombinasikan teknik pijat relaksasi lembut dengan minyak aromaterapi pilihan untuk melepaskan ketegangan tubuh, menyegarkan pikiran, dan menghadirkan momen kebersamaan yang menenangkan.",
+      en: "A dedicated side-by-side relaxation journey designed for couples in a tranquil private ambience. Blends rhythmic pressure strokes with soothing botanical essential oils to melt away tension, restore vitality, and share restorative calm."
+    },
+    duration: {
+      id: "60 / 90 / 120 Menit",
+      en: "60 / 90 / 120 Mins"
+    },
+    isHomeService: true,
+    isInStudio: true,
+    image: "/spa1.jpg",
+    fallbackImage: "/spa1.jpg",
+    benefits: {
+      id: ["Meredakan stres dan kelelahan berdua", "Meningkatkan relaksasi pikiran dan tubuh", "Momen kebersamaan yang intim dan berkesan"],
+      en: ["Relieve fatigue & stress together", "Enhance mental and physical calm", "Memorable shared relaxation bonding"]
+    },
+    steps: {
+      id: ["Penyambutan foot bath herbal hangat bersama", "Pijat relaksasi tubuh beriringan", "Aromaterapi menenangkan", "Penyegaran handuk hangat"],
+      en: ["Warm herbal foot bath welcome", "Synchronized soothing body massage", "Calming aromatherapy balm", "Warm towel refreshment"]
+    }
+  },
+  {
+    id: "hot-oil-massage",
+    name: "Hot Oil Massage",
+    category: "Massage",
+    shortDesc: {
+      id: "Pijatan dengan minyak hangat aromatik untuk melegakan otot kaku dan menutrisi kulit.",
+      en: "Soothing massage using warm herbal oils to melt stiff muscles and nourish dry skin."
+    },
+    fullDesc: {
+      id: "Terapi pijat menggunakan minyak alami hangat yang diratakan ke seluruh tubuh dengan usapan lembut dan mantap. Kehangatan minyak membantu melonggarkan otot-otot yang kaku, melancarkan peredaran darah, sekaligus memberikan kelembapan ekstra bagi kulit.",
+      en: "Indulgent therapy utilizing warmed pure botanical oils poured gently and massaged along tired muscles. The soothing warmth eases muscular tightness, promotes circulation, and restores deep hydration to the skin."
+    },
+    duration: {
+      id: "60 / 90 Menit",
+      en: "60 / 90 Mins"
+    },
+    isHomeService: true,
+    isInStudio: true,
+    image: "/spa2.jpg",
+    fallbackImage: "/spa2.jpg",
+    benefits: {
+      id: ["Melegakan otot kaku dan pegal mendalam", "Menutrisi dan melembapkan kulit kering", "Memberikan rasa hangat dan relaksasi total"],
+      en: ["Melt away stiffness and muscle aches", "Deeply nourish and moisturize dry skin", "Delivers comforting warmth and peace"]
+    },
+    steps: {
+      id: ["Pemanasan awal dan perataan minyak hangat", "Pijatan ritmis melancarkan peredaran darah", "Penekanan lembut area leher dan punggung", "Penyelesaian handuk hangat"],
+      en: ["Gentle warm oil application & glide", "Rhythmic circulation massage strokes", "Soothing tension release on back & neck", "Warm towel cleansing finish"]
+    }
+  },
+  {
+    id: "aromatherapy-massage",
+    name: "Aromaterapi Massage",
+    category: "Massage",
+    shortDesc: {
+      id: "Pijatan lembut berpadu minyak esensial aromatik murni untuk menenangkan pikiran dan jiwa.",
+      en: "Gentle healing massage infused with pure essential oils to quiet the mind and senses."
+    },
+    fullDesc: {
+      id: "Pijat relaksasi holistik yang memadukan usapan lembut mengalir dengan wewangian minyak esensial alami pilihan seperti lavender, lemongrass, atau kenanga. Bekerja menyeimbangkan sistem saraf, meredakan kecemasan, serta memulihkan kualitas tidur alami.",
+      en: "A holistic relaxation massage blending flowing rhythmic touch with pure therapeutic essential oils such as lavender, lemongrass, or ylang-ylang. Restores nervous system equilibrium, relieves anxiety, and invites restorative sleep."
+    },
+    duration: {
+      id: "60 / 90 Menit",
+      en: "60 / 90 Mins"
+    },
+    isHomeService: true,
+    isInStudio: true,
+    image: "/spa4.jpg",
+    fallbackImage: "/spa4.jpg",
+    benefits: {
+      id: ["Meredakan kecemasan dan stres emosional", "Membantu memperbaiki pola tidur nyenyak", "Mengurangi rasa lelah fisik dan mental"],
+      en: ["Soothe anxiety and emotional stress", "Encourage deep, restful night sleep", "Relieve physical and mental exhaustion"]
+    },
+    steps: {
+      id: ["Inhalasi aroma pembuka pernapasan rileks", "Pijatan ritmis lembut seluruh tubuh", "Sentuhan akupresur ringan kepala & pelipis", "Penyegaran aroma segar penutup"],
+      en: ["Opening aromatherapy breathing ritual", "Flowing gentle full-body massage strokes", "Light acupressure on temples & scalp", "Refreshing botanical mist finish"]
+    }
   }
 ];

@@ -126,7 +126,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
 
                 <div className="relative">
                   <Quote className="w-6 h-6 text-[#2D6A4F]/20 absolute -top-2 -left-3.5 rotate-180 -z-0" />
-                  <p className="text-sm text-[#6B6B6B] leading-relaxed italic font-light relative z-10 pl-3">
+                  <p className="text-[14px] sm:text-[15px] text-[#333333] leading-relaxed italic font-normal relative z-10 pl-3">
                     &ldquo;{review.comment}&rdquo;
                   </p>
                 </div>
@@ -148,7 +148,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
                     <h4 className="font-sans text-base text-[#1B1B1B] font-semibold leading-snug truncate">
                       {review.name}
                     </h4>
-                    <span className="text-xs text-[#6B6B6B] flex items-center space-x-1 truncate mt-0.5">
+                    <span className="text-xs text-[#4A4A4A] font-medium flex items-center space-x-1 truncate mt-0.5">
                       <Clock className="w-3 h-3 text-[#2D6A4F] shrink-0" />
                       <span>{review.timeAgo}</span>
                     </span>
