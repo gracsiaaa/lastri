@@ -784,6 +784,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     }}
                     options={[
                       { value: 'Kota Banyuwangi', label: 'Kota Banyuwangi' },
+                      { value: 'Klatak', label: 'Klatak' },
                       { value: 'Giri', label: 'Giri' },
                       { value: 'Glagah', label: 'Glagah' },
                       { value: 'Licin', label: 'Licin' },

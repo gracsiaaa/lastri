@@ -14,7 +14,7 @@ export const SPA_INFO = {
     en: "No need to travel for a spa experience. Enjoy personalized treatments in the comfort of your home, hotel, or villa, delivered by our professional female therapists.",
     id: "Tak perlu bepergian untuk menikmati perawatan spa. Kami hadir di rumah, hotel, atau vila Anda dengan layanan personal dari terapis wanita profesional"
   },
-  address: "Layanan Panggilan / On-Call ke Rumah, Hotel & Vila (Area Kota Banyuwangi & Sekitarnya)",
+  address: "Layanan Panggilan / On-Call ke Rumah, Hotel & Vila (Area Klatak, Kota Banyuwangi, Giri, Glagah, Licin, Kabat & Sekitarnya)",
   phone: "0895347499653",
   whatsapp: "+62 895 3474 99653",
   whatsappMessage: "Halo Lastri Spa Home Service, saya tertarik untuk pesan layanan anda",
@@ -129,8 +129,8 @@ export const FAQS = [
       id: "Area mana saja di Banyuwangi yang dapat dijangkau?"
     },
     answer: {
-      en: "We serve Banyuwangi City, Glagah, Licin, Giri, Kabat, Rogojampi, as well as surrounding hotels and villas.",
-      id: "Kami melayani area Kota Banyuwangi, Glagah, Licin, Giri, Kabat, Rogojampi, serta hotel dan vila di sekitarnya."
+      en: "We serve Klatak, Banyuwangi City, Glagah, Licin, Giri, Kabat, Rogojampi, as well as surrounding hotels and villas.",
+      id: "Kami melayani area Klatak, Kota Banyuwangi, Glagah, Licin, Giri, Kabat, Rogojampi, serta hotel dan vila di sekitarnya."
     }
   }
 ];
