@@ -69,7 +69,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-serif text-4xl sm:text-6xl md:text-7xl lg:text-8xl text-[#F8F5EE] font-semibold tracking-tight leading-[1.18] drop-shadow-lg"
+          className="font-serif text-4xl sm:text-5xl md:text-6xl lg:text-7xl text-[#F8F5EE] font-semibold tracking-tight leading-[1.18] drop-shadow-lg"
         >
           {SPA_INFO.headline[lang]}
         </motion.h1>
@@ -78,7 +78,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-2xl mx-auto text-lg sm:text-xl md:text-2xl text-[#F8F5EE] font-medium leading-[1.75] drop-shadow-md"
+          className="max-w-2xl mx-auto text-lg sm:text-base md:text-lg text-[#F8F5EE] font-medium leading-[1.75] drop-shadow-md"
         >
           {SPA_INFO.subtagline[lang]}
         </motion.p>
@@ -93,15 +93,15 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-9 py-4 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-[#FFFFFF] text-base font-semibold tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[50px] group cursor-pointer"
+            className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-[#FFFFFF] text-base sm:text-sm font-semibold tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[48px] group cursor-pointer"
           >
-            <MessageSquare className="w-5 h-5 text-white fill-white flex-shrink-0 group-hover:scale-110 transition-transform" />
+            <MessageSquare className="w-5 h-5 sm:w-4.5 sm:h-4.5 text-white fill-white flex-shrink-0 group-hover:scale-110 transition-transform" />
             <span>{lang === 'en' ? "Book Now" : "Pesan Sekarang"}</span>
           </a>
 
           <a
             href="#treatments"
-            className="w-full sm:w-auto px-9 py-4 rounded-lg border border-[#C7AF90]/70 bg-[#F0E7D8]/20 hover:bg-[#F0E7D8]/35 backdrop-blur-md text-[#F8F5EE] text-base font-semibold tracking-wide shadow-sm hover:shadow-lg hover:border-[#C7AF90] transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[50px] group cursor-pointer"
+            className="w-full sm:w-auto px-8 py-4 rounded-lg border border-[#C7AF90]/70 bg-[#F0E7D8]/20 hover:bg-[#F0E7D8]/35 backdrop-blur-md text-[#F8F5EE] text-base sm:text-sm font-semibold tracking-wide shadow-sm hover:shadow-lg hover:border-[#C7AF90] transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[48px] group cursor-pointer"
           >
             <span>{lang === 'en' ? "Discover Treatments" : "Lihat Menu Perawatan"}</span>
             <ArrowDown className="w-5 h-5 text-[#F8F5EE]/90 group-hover:text-white group-hover:translate-y-1 transition-all" />

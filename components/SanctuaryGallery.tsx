@@ -33,13 +33,13 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
     <section id="gallery" className="py-24 sm:py-32 bg-[#F8F5EE] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-4 py-2 rounded-full border border-[#C7AF90]/50 inline-block">
+          <span className="text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/50 inline-block">
             {lang === 'en' ? "Visual Journey" : "Galeri Visual"}
           </span>
-          <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl text-[#302310] font-semibold tracking-tight">
+          <h2 className="font-sans text-3xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
             {lang === 'en' ? "Lastri Spa Gallery" : "Galeri Lastri Spa"}
           </h2>
-          <p className="text-base sm:text-lg text-[#534D2B] font-medium leading-[1.75]">
+          <p className="text-base sm:text-base text-[#534D2B] font-medium leading-[1.7]">
             {lang === 'en'
               ? "Explore our sterile equipment setups, pure organic ingredients, and comfortable care sessions."
               : "Lihat kesiapan perlengkapan steril, racikan bahan alami murni, dan kenyamanan sesi perawatan."}
@@ -51,7 +51,7 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
             <button
               key={f.id}
               onClick={() => setActiveFilter(f.id)}
-              className={`px-5 py-2.5 rounded-full text-sm sm:text-base font-semibold transition-all whitespace-nowrap min-h-[46px] cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-sm sm:text-sm font-semibold transition-all whitespace-nowrap min-h-[44px] cursor-pointer ${
                 activeFilter === f.id
                   ? 'bg-[#364A31] text-[#FFFFFF] shadow-md'
                   : 'bg-[#F0E7D8] text-[#534D2B] hover:text-[#302310] hover:bg-[#E6E2D3] border border-[#C7AF90]/60'
