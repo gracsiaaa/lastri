@@ -127,31 +127,13 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
               </div>
 
               <div className="pt-4 border-t border-[#C7AF90]/40 flex items-center justify-between gap-3">
-                <div className="flex items-center space-x-3 min-w-0">
-                  <div className="relative flex-shrink-0">
-                    <img
-                      src={review.avatar || '/spa1.jpg'}
-                      onError={(e) => {
-                        (e.target as HTMLImageElement).src = '/spa1.jpg';
-                      }}
-                      alt={review.name}
-                      className="w-11 h-11 rounded-full object-cover border-2 border-[#364A31]/30 shadow-xs"
-                    />
-                  </div>
-                  <div className="min-w-0">
-                    <h4 className="font-sans text-base text-[#302310] font-bold leading-snug truncate">
-                      {review.name}
-                    </h4>
-                    <span className="text-xs text-[#756B5C] font-semibold flex items-center space-x-1 truncate mt-0.5">
-                      <Clock className="w-3 h-3 text-[#364A31] shrink-0" />
-                      <span>{review.timeAgo}</span>
-                    </span>
-                  </div>
-                </div>
-
-                <div className="flex-shrink-0">
-                  <span className="text-[11px] font-semibold bg-[#E6E2D3] text-[#364A31] px-2.5 py-1 rounded-full border border-[#C7AF90]/50 block">
-                    Verified
+                <div className="min-w-0">
+                  <h4 className="font-sans text-base text-[#302310] font-bold leading-snug truncate">
+                    {review.name}
+                  </h4>
+                  <span className="text-xs text-[#756B5C] font-semibold flex items-center space-x-1 truncate mt-0.5">
+                    <Clock className="w-3 h-3 text-[#364A31] shrink-0" />
+                    <span>{review.timeAgo}</span>
                   </span>
                 </div>
               </div>
