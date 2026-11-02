@@ -21,13 +21,13 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
     <section id="faq" className="py-24 sm:py-32 bg-[#F8F5EE] relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/50 inline-block">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-4 py-2 rounded-full border border-[#C7AF90]/50 inline-block">
             {lang === 'en' ? "Got Questions?" : "Pusat Bantuan"}
           </span>
-          <h2 className="font-sans text-3xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
+          <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl text-[#302310] font-semibold tracking-tight">
             {lang === 'en' ? "Frequently Asked Questions" : "Pertanyaan Umum (FAQ)"}
           </h2>
-          <p className="text-sm sm:text-base text-[#534D2B] font-medium leading-[1.7]">
+          <p className="text-base sm:text-lg text-[#534D2B] font-medium leading-[1.75]">
             {lang === 'en'
               ? "General information and frequently asked questions regarding Lastri Spa Home Service."
               : "Informasi dan pertanyaan umum terkait Lastri Spa Home Service."}

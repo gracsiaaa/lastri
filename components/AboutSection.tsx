@@ -61,16 +61,16 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
           </div>
 
           <div className="lg:col-span-6 space-y-6">
-            <div className="space-y-3.5">
-              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/40">
-                <Leaf className="w-3.5 h-3.5 text-[#364A31]" />
+            <div className="space-y-4">
+              <div className="inline-flex items-center space-x-2 text-xs sm:text-sm font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-4 py-2 rounded-full border border-[#C7AF90]/40">
+                <Leaf className="w-4 h-4 text-[#364A31]" />
                 <span>{lang === 'en' ? "Our Philosophy" : "Filosofi Relaksasi"}</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-5xl text-[#302310] font-semibold leading-tight">
+              <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#302310] font-semibold leading-tight">
                 {PHILOSOPHY_CONTENT.title[lang]}
               </h2>
-              <p className="text-base sm:text-lg text-[#534D2B] font-medium leading-[1.75]">
+              <p className="text-lg sm:text-xl text-[#534D2B] font-medium leading-[1.8]">
                 {PHILOSOPHY_CONTENT.story[lang]}
               </p>
             </div>
@@ -78,10 +78,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="pt-2">
               <button
                 onClick={onOpenAboutModal}
-                className="px-7 py-3.5 rounded-lg bg-[#364A31] text-[#FFFFFF] hover:bg-[#263A25] transition-all duration-300 text-sm font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] inline-flex items-center space-x-2.5 min-h-[44px] group cursor-pointer"
+                className="px-8 py-4 rounded-lg bg-[#364A31] text-[#FFFFFF] hover:bg-[#263A25] transition-all duration-300 text-base font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] inline-flex items-center space-x-2.5 min-h-[48px] group cursor-pointer"
               >
                 <span>{lang === 'en' ? "Read Our Full Story" : "Baca Selengkapnya"}</span>
-                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
+                <ArrowRight className="w-5 h-5 text-white group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>

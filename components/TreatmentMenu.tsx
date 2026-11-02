@@ -41,13 +41,13 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
     <section id="treatments" className="py-24 sm:py-32 bg-[#F0E7D8] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-3xl mx-auto space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#E6E2D3] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/50 inline-block">
+          <span className="text-xs sm:text-sm font-bold uppercase tracking-widest text-[#364A31] bg-[#E6E2D3] px-4 py-2 rounded-full border border-[#C7AF90]/50 inline-block">
             {lang === 'en' ? "Signature Care" : "Menu Perawatan"}
           </span>
-          <h2 className="font-sans text-3xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
+          <h2 className="font-sans text-3xl sm:text-5xl lg:text-6xl text-[#302310] font-semibold tracking-tight">
             {lang === 'en' ? "Holistic Treatment Menu" : "Menu Perawatan Spa"}
           </h2>
-          <p className="text-sm sm:text-base text-[#534D2B] font-medium leading-[1.7]">
+          <p className="text-base sm:text-lg text-[#534D2B] font-medium leading-[1.75]">
             {lang === 'en'
               ? "Select from our specialized massage, facial, body, and specialty therapies. Click any card to view full details."
               : "Pilih perawatan pijat, facial, lulur tubuh, atau terapi spesial kami. Klik kartu untuk melihat rincian lengkap ritual."}
@@ -60,7 +60,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
             <button
               key={cat}
               onClick={() => setActiveCategory(cat)}
-              className={`px-5 py-2.5 rounded-full text-xs sm:text-sm font-semibold transition-all whitespace-nowrap min-h-[44px] cursor-pointer ${
+              className={`px-5 py-2.5 rounded-full text-sm sm:text-base font-semibold transition-all whitespace-nowrap min-h-[46px] cursor-pointer ${
                 activeCategory === cat
                   ? 'bg-[#364A31] text-[#FFFFFF] shadow-md'
                   : 'bg-[#F8F5EE] text-[#534D2B] hover:text-[#302310] hover:bg-[#E6E2D3] border border-[#C7AF90]/60'
@@ -130,26 +130,26 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                     </div>
 
                     <div className="p-5 pt-4 pb-3 space-y-2">
-                      <h3 className="font-serif text-lg sm:text-xl text-[#302310] font-bold leading-snug group-hover:text-[#364A31] transition-colors min-h-[48px] flex items-center">
+                      <h3 className="font-serif text-xl sm:text-2xl text-[#302310] font-bold leading-snug group-hover:text-[#364A31] transition-colors min-h-[52px] flex items-center">
                         {treatment.name}
                       </h3>
 
                       {/* Description tegas font-weight 500, line-height 1.6-1.75 */}
-                      <p className="text-[13px] sm:text-sm text-[#534D2B] font-medium line-clamp-2 leading-[1.65] min-h-[42px] px-0.5">
+                      <p className="text-sm sm:text-base text-[#534D2B] font-medium line-clamp-2 leading-[1.65] min-h-[46px] px-0.5">
                         {typeof treatment.shortDesc === 'string' ? treatment.shortDesc : treatment.shortDesc[lang]}
                       </p>
                     </div>
                   </div>
 
-                  <div className="p-5 pt-0 flex items-center justify-between gap-3">
+                  <div className="p-5 pt-0 grid grid-cols-2 gap-3">
                     <button
                       onClick={(e) => {
                         e.stopPropagation();
                         onSelectTreatment(treatment);
                       }}
-                      className="flex-1 py-3 px-4 rounded-lg border border-[#364A31] text-[#364A31] hover:bg-[#364A31] hover:text-white bg-transparent text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center space-x-1.5 min-h-[44px] shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
+                      className="w-full py-3 px-3 rounded-lg border border-[#364A31] text-[#364A31] hover:bg-[#364A31] hover:text-white bg-transparent text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center space-x-1.5 min-h-[46px] shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
                     >
-                      <Eye className="w-4 h-4 text-current transition-colors" />
+                      <Eye className="w-4 h-4 text-current transition-colors shrink-0" />
                       <span>Detail</span>
                     </button>
 
@@ -158,10 +158,10 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                         e.stopPropagation();
                         onBookTreatmentDirect(treatment);
                       }}
-                      className="py-3 px-5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-[#FFFFFF] text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] flex items-center space-x-1 group cursor-pointer"
+                      className="w-full py-3 px-3 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-[#FFFFFF] text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[46px] flex items-center justify-center space-x-1 group cursor-pointer"
                     >
                       <span>{lang === 'en' ? "Book Now" : "Pesan Sekarang"}</span>
-                      <ChevronRight className="w-3.5 h-3.5 text-white group-hover:translate-x-0.5 transition-transform" />
+                      <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform shrink-0" />
                     </button>
                   </div>
                 </div>

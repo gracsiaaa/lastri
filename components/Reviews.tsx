@@ -64,10 +64,10 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
             <span className="text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#E6E2D3] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/50 inline-block">
               {lang === 'en' ? "Guest Experiences" : "Testimoni Tamu"}
             </span>
-            <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#302310] font-semibold leading-tight">
+            <h2 className="font-serif text-3xl sm:text-5xl lg:text-6xl text-[#302310] font-semibold leading-tight">
               {lang === 'en' ? "Stories of Pure Relaxation" : "Pengalaman Relaksasi Autentik"}
             </h2>
-            <p className="text-base sm:text-lg text-[#534D2B] font-medium italic">
+            <p className="text-lg sm:text-xl text-[#534D2B] font-medium italic">
               {lang === 'en' ? '"Words of Relaxation from Our Guests"' : '"Cerita Relaksasi Dari Tamu Kami"'}
             </p>
           </div>
@@ -120,7 +120,7 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
 
                 <div className="relative">
                   <Quote className="w-6 h-6 text-[#C7AF90]/40 absolute -top-2 -left-3.5 rotate-180 -z-0" />
-                  <p className="text-[14px] sm:text-[15px] text-[#534D2B] leading-[1.7] italic font-medium relative z-10 pl-3">
+                  <p className="text-base sm:text-lg text-[#534D2B] leading-[1.75] italic font-medium relative z-10 pl-3">
                     &ldquo;{review.comment}&rdquo;
                   </p>
                 </div>
@@ -128,10 +128,10 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
 
               <div className="pt-4 border-t border-[#C7AF90]/40 flex items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <h4 className="font-sans text-base text-[#302310] font-bold leading-snug truncate">
+                  <h4 className="font-sans text-lg text-[#302310] font-bold leading-snug truncate">
                     {review.name}
                   </h4>
-                  <span className="text-xs text-[#756B5C] font-semibold flex items-center space-x-1 truncate mt-0.5">
+                  <span className="text-sm text-[#756B5C] font-semibold flex items-center space-x-1 truncate mt-0.5">
                     <Clock className="w-3 h-3 text-[#364A31] shrink-0" />
                     <span>{review.timeAgo}</span>
                   </span>
