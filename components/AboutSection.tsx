@@ -16,11 +16,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
   onOpenAboutModal,
 }) => {
   return (
-    <section id="about" className="py-20 sm:py-28 bg-[#FFFFFF] relative overflow-hidden">
+    <section id="about" className="py-20 sm:py-28 bg-[#F8F5EE] relative overflow-hidden">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="grid grid-cols-1 lg:grid-cols-12 gap-10 lg:gap-14 items-center">
           <div className="lg:col-span-6 relative">
-            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-4/3 sm:aspect-16/10 lg:aspect-4/3 max-h-[420px]">
+            <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-4/3 sm:aspect-16/10 lg:aspect-4/3 max-h-[420px] border border-[#C7AF90]/40">
               <Image
                 src="/spa6.jpg"
                 alt="Sanctuary Organic Botanical Healing"
@@ -28,31 +28,31 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
               />
-              <div className="absolute inset-0 bg-gradient-to-t from-black/40 via-transparent to-transparent" />
+              <div className="absolute inset-0 bg-gradient-to-t from-[#302310]/50 via-transparent to-transparent" />
             </div>
 
-            <div className="absolute top-6 sm:top-10 -left-4 sm:-left-8 bg-[#FFFFFF]/75 backdrop-blur-[2px] p-2.5 sm:p-3 rounded-2xl max-w-[210px] sm:max-w-[240px] shadow-xl border border-[#1B1B1B]/15 space-y-1 hidden sm:block z-10">
+            <div className="absolute top-6 sm:top-10 -left-4 sm:-left-8 bg-[#F0E7D8]/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl max-w-[220px] sm:max-w-[250px] shadow-xl border border-[#C7AF90]/60 space-y-1 hidden sm:block z-10">
               <div className="flex items-center space-x-1.5">
-                <Award className="w-4 h-4 text-[#2D6A4F] flex-shrink-0" />
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#2D6A4F]">
+                <Award className="w-4 h-4 text-[#364A31] flex-shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#364A31]">
                   {lang === 'en' ? "Experienced Therapists" : "Terapis Berpengalaman"}
                 </span>
               </div>
-              <p className="text-[11px] sm:text-xs text-[#4A4A4A] font-medium leading-relaxed">
+              <p className="text-xs text-[#534D2B] font-semibold leading-relaxed">
                 {lang === 'en'
                   ? "Over 10+ years dedicated to wellness."
                   : "Lebih dari 10 tahun berdedikasi dalam kebugaran."}
               </p>
             </div>
 
-            <div className="absolute -bottom-6 right-6 sm:right-12 bg-[#E8EDE3]/75 backdrop-blur-[2px] p-2.5 sm:p-3 rounded-2xl max-w-[210px] sm:max-w-[240px] shadow-xl border border-[#1B1B1B]/15 space-y-1 hidden sm:block z-10">
+            <div className="absolute -bottom-6 right-6 sm:right-12 bg-[#E6E2D3]/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl max-w-[220px] sm:max-w-[250px] shadow-xl border border-[#C7AF90]/60 space-y-1 hidden sm:block z-10">
               <div className="flex items-center space-x-1.5">
-                <Leaf className="w-4 h-4 text-[#2D6A4F] flex-shrink-0" />
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#2D6A4F]">
+                <Leaf className="w-4 h-4 text-[#364A31] flex-shrink-0" />
+                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#364A31]">
                   {lang === 'en' ? "Wild Botanicals" : "Bahan Organik Segar"}
                 </span>
               </div>
-              <p className="text-[11px] sm:text-xs text-[#4A4A4A] font-medium leading-relaxed">
+              <p className="text-xs text-[#534D2B] font-semibold leading-relaxed">
                 {lang === 'en'
                   ? "Hand-pressed daily using traditional mortars."
                   : "Diracik segar setiap pagi dari ramuan organik murni."}
@@ -62,10 +62,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-3.5">
-              <h2 className="font-serif text-3xl sm:text-5xl text-[#1B1B1B] font-semibold leading-tight">
+              <div className="inline-flex items-center space-x-2 text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/40">
+                <Leaf className="w-3.5 h-3.5 text-[#364A31]" />
+                <span>{lang === 'en' ? "Our Philosophy" : "Filosofi Relaksasi"}</span>
+              </div>
+
+              <h2 className="font-serif text-3xl sm:text-5xl text-[#302310] font-semibold leading-tight">
                 {PHILOSOPHY_CONTENT.title[lang]}
               </h2>
-              <p className="text-base sm:text-lg text-[#6B6B6B] font-light leading-relaxed">
+              <p className="text-base sm:text-lg text-[#534D2B] font-medium leading-[1.75]">
                 {PHILOSOPHY_CONTENT.story[lang]}
               </p>
             </div>
@@ -73,10 +78,10 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="pt-2">
               <button
                 onClick={onOpenAboutModal}
-                className="px-7 py-3 rounded-full border border-[#9CAF88] text-[#9CAF88] hover:bg-[#9CAF88] hover:text-white transition-all duration-300 text-sm font-medium shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] inline-flex items-center space-x-2.5 min-h-[44px] group"
+                className="px-7 py-3.5 rounded-lg bg-[#364A31] text-[#FFFFFF] hover:bg-[#263A25] transition-all duration-300 text-sm font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] inline-flex items-center space-x-2.5 min-h-[44px] group cursor-pointer"
               >
                 <span>{lang === 'en' ? "Read Our Full Story" : "Baca Selengkapnya"}</span>
-                <ArrowRight className="w-4 h-4 text-[#9CAF88] group-hover:text-white group-hover:translate-x-1 transition-all" />
+                <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />
               </button>
             </div>
           </div>

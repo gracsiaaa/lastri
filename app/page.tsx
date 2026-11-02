@@ -102,7 +102,7 @@ export default function Home() {
   };
 
   return (
-    <div className="relative min-h-screen bg-white text-[#1B1B1B] overflow-x-hidden font-sans">
+    <div className="relative min-h-screen bg-[#F8F5EE] text-[#534D2B] overflow-x-hidden font-sans">
       {/* 1. Sticky Navigation Bar */}
       <Navbar
         lang={lang}

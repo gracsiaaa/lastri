@@ -4,7 +4,6 @@ import React, { useState } from 'react';
 import Image from 'next/image';
 import { BaseModal } from './BaseModal';
 import { Treatment } from '../../data/treatments';
-import { getWhatsAppUrl } from '../../data/spaData';
 import { Language } from '../../types';
 import { Clock, Check, Calendar } from 'lucide-react';
 
@@ -25,12 +24,6 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
 }) => {
   const [imgSrc, setImgSrc] = useState<string>('');
 
-  React.useEffect(() => {
-    if (treatment) {
-      setImgSrc(treatment.image);
-    }
-  }, [treatment]);
-
   if (!isOpen || !treatment) return null;
 
   const currentImg = imgSrc || treatment.fallbackImage || '/spa1.jpg';
@@ -45,7 +38,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
     >
       <div className="space-y-6">
         <div className="space-y-4">
-          <div className="relative rounded-2xl overflow-hidden h-56 sm:h-72 group shadow-sm border border-[#E0E0E0]">
+          <div className="relative rounded-2xl overflow-hidden h-56 sm:h-72 group shadow-sm border border-[#C7AF90]/50 bg-[#E6E2D3]">
             <Image
               src={currentImg}
               alt={treatment.name}
@@ -56,14 +49,14 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
                 setImgSrc(treatment.fallbackImage || '/spa1.jpg');
               }}
             />
-            <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-6">
+            <div className="absolute inset-0 bg-gradient-to-t from-[#1D1914]/85 via-[#302310]/30 to-transparent flex items-end p-6">
               <div className="w-full flex items-center justify-between gap-3 text-white">
                 <div className="flex flex-wrap items-center gap-2 sm:gap-3">
-                  <span className="bg-[#2D6A4F] text-white px-3 py-1 rounded-full text-xs font-semibold uppercase tracking-wider shadow-xs">
+                  <span className="bg-[#364A31] text-[#F8F5EE] px-3.5 py-1 rounded-full text-xs font-bold uppercase tracking-wider shadow-xs border border-[#C7AF90]/40">
                     {treatment.category}
                   </span>
-                  <span className="flex items-center space-x-1.5 bg-black/40 backdrop-blur-md px-3 py-1 rounded-full text-xs font-medium border border-white/20">
-                    <Clock className="w-3.5 h-3.5 text-[#9CAF88]" />
+                  <span className="flex items-center space-x-1.5 bg-[#1D1914]/70 backdrop-blur-md px-3 py-1 rounded-full text-xs font-semibold border border-white/20">
+                    <Clock className="w-3.5 h-3.5 text-[#C7AF90]" />
                     <span>{typeof treatment.duration === 'string' ? treatment.duration : treatment.duration[lang]}</span>
                   </span>
                 </div>
@@ -72,18 +65,18 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
           </div>
         </div>
 
-        <p className="text-sm sm:text-[15px] text-[#4A4A4A] leading-relaxed -mt-1.5 font-normal">
+        <p className="text-sm sm:text-base text-[#534D2B] leading-[1.75] font-medium -mt-1.5">
           {typeof treatment.fullDesc === 'string' ? treatment.fullDesc : treatment.fullDesc[lang]}
         </p>
 
         <div className="space-y-3">
-          <h4 className="font-sans text-sm sm:text-base text-[#1B1B1B] font-semibold">
+          <h4 className="font-sans text-sm sm:text-base text-[#302310] font-bold">
             {lang === 'en' ? "Benefits" : "Manfaat Utama"}
           </h4>
           <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
             {(Array.isArray(treatment.benefits) ? treatment.benefits : treatment.benefits[lang]).map((benefit, idx) => (
-              <li key={idx} className="flex items-start space-x-2 text-[#6B6B6B]">
-                <Check className="w-4 h-4 text-[#9CAF88] flex-shrink-0 mt-0.5" />
+              <li key={idx} className="flex items-start space-x-2.5 text-[#534D2B] font-medium">
+                <Check className="w-4 h-4 text-[#364A31] flex-shrink-0 mt-0.5" />
                 <span>{benefit}</span>
               </li>
             ))}
@@ -91,28 +84,28 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
         </div>
 
         <div className="space-y-3 pt-1">
-          <h4 className="font-sans text-sm sm:text-base text-[#1B1B1B] font-semibold">
+          <h4 className="font-sans text-sm sm:text-base text-[#302310] font-bold">
             {lang === 'en' ? "Ritual Steps" : "Tahapan Ritual Spa"}
           </h4>
           <div className="space-y-2.5">
             {(Array.isArray(treatment.steps) ? treatment.steps : treatment.steps[lang]).map((step, idx) => (
               <div
                 key={idx}
-                className="flex items-center space-x-4 p-3.5 rounded-xl bg-[#E8EDE3] border border-[#1B1B1B]/10 text-xs sm:text-sm"
+                className="flex items-center space-x-4 p-3.5 rounded-xl bg-[#F0E7D8] border border-[#C7AF90]/40 text-xs sm:text-sm"
               >
-                <div className="w-7 h-7 rounded-full bg-[#2D6A4F] text-white font-sans text-xs font-semibold flex items-center justify-center flex-shrink-0">
+                <div className="w-7 h-7 rounded-full bg-[#364A31] text-white font-sans text-xs font-bold flex items-center justify-center flex-shrink-0">
                   {idx + 1}
                 </div>
-                <span className="text-[#1B1B1B] font-medium">{step}</span>
+                <span className="text-[#302310] font-semibold">{step}</span>
               </div>
             ))}
           </div>
         </div>
 
-        <div className="pt-4 border-t border-[#1B1B1B]/10 flex items-center justify-end">
+        <div className="pt-4 border-t border-[#C7AF90]/40 flex items-center justify-end">
           <button
             onClick={() => onBookTreatment(treatment)}
-            className="w-full sm:w-auto px-6 py-3 rounded-full bg-[#9CAF88] hover:bg-[#8A9E78] text-white text-xs sm:text-sm font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
           >
             <Calendar className="w-4 h-4" />
             <span>{lang === 'en' ? "Book This Treatment" : "Pesan Perawatan Ini"}</span>

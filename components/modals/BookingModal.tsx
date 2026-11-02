@@ -52,19 +52,19 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
           e.stopPropagation();
           setIsOpen((prev) => !prev);
         }}
-        className={`w-full px-5 py-3.5 rounded-2xl bg-white border text-left text-xs sm:text-sm font-medium transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
+        className={`w-full px-5 py-3.5 rounded-xl bg-[#F8F5EE] border text-left text-xs sm:text-sm font-semibold transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
           isOpen
-            ? 'bg-white border-[#9CAF88] ring-4 ring-[#9CAF88]/15'
+            ? 'bg-white border-[#364A31] ring-4 ring-[#364A31]/15'
             : error
-            ? 'border-red-500 bg-white'
-            : 'border-[#1B1B1B]/12 text-[#1B1B1B] hover:border-[#9CAF88] hover:bg-white'
+            ? 'border-red-600 bg-white'
+            : 'border-[#C7AF90]/60 text-[#302310] hover:border-[#364A31] hover:bg-white'
         }`}
       >
-        <span className={selectedOption ? 'text-[#1B1B1B]' : 'text-[#7A8A7E]'}>
+        <span className={selectedOption ? 'text-[#302310] font-semibold' : 'text-[#756B5C]'}>
           {selectedOption ? selectedOption.label : placeholder}
         </span>
         <svg
-          className={`w-4 h-4 text-[#9CAF88] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
+          className={`w-4 h-4 text-[#364A31] transition-transform duration-200 ${isOpen ? 'rotate-180' : ''}`}
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -75,7 +75,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       </button>
 
       {isOpen && (
-        <div className={`absolute left-0 right-0 ${position === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'} bg-[#FFFFFF] border border-[#1B1B1B]/12 rounded-2xl shadow-xl z-50 overflow-hidden py-1.5 animate-in fade-in duration-150 max-h-[190px] overflow-y-auto`}>
+        <div className={`absolute left-0 right-0 ${position === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'} bg-[#F8F5EE] border border-[#C7AF90]/60 rounded-xl shadow-xl z-50 overflow-hidden py-1.5 animate-in fade-in duration-150 max-h-[190px] overflow-y-auto`}>
           {options.map((opt) => {
             const isSelected = opt.value === value;
             return (
@@ -87,14 +87,14 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
                   onChange(opt.value);
                   setIsOpen(false);
                 }}
-                className={`px-4 py-3 text-xs sm:text-sm font-medium cursor-pointer transition-colors flex items-center justify-between ${
+                className={`px-4 py-3 text-xs sm:text-sm font-semibold cursor-pointer transition-colors flex items-center justify-between ${
                   isSelected
-                    ? 'bg-[#E8EDE3] text-[#9CAF88] font-semibold'
-                    : 'text-[#1B1B1B] hover:bg-[#E8EDE3]/60'
+                    ? 'bg-[#E6E2D3] text-[#364A31]'
+                    : 'text-[#302310] hover:bg-[#F0E7D8]'
                 }`}
               >
                 <span>{opt.label}</span>
-                {isSelected && <span className="text-[#9CAF88] text-xs font-bold">✓</span>}
+                {isSelected && <span className="text-[#364A31] text-xs font-bold">✓</span>}
               </div>
             );
           })}
@@ -197,19 +197,19 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
           e.stopPropagation();
           setIsOpen((prev) => !prev);
         }}
-        className={`w-full px-5 py-3.5 rounded-2xl bg-white border text-left text-xs sm:text-sm font-medium transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
+        className={`w-full px-5 py-3.5 rounded-xl bg-[#F8F5EE] border text-left text-xs sm:text-sm font-semibold transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
           isOpen
-            ? 'bg-white border-[#9CAF88] ring-4 ring-[#9CAF88]/15'
+            ? 'bg-white border-[#364A31] ring-4 ring-[#364A31]/15'
             : error
-            ? 'border-red-500 bg-white'
-            : 'border-[#1B1B1B]/12 text-[#1B1B1B] hover:border-[#9CAF88] hover:bg-white'
+            ? 'border-red-600 bg-white'
+            : 'border-[#C7AF90]/60 text-[#302310] hover:border-[#364A31] hover:bg-white'
         }`}
       >
-        <span className={formattedText ? 'text-[#1B1B1B]' : 'text-[#7A8A7E]'}>
+        <span className={formattedText ? 'text-[#302310]' : 'text-[#756B5C]'}>
           {formattedText || (lang === 'en' ? 'Select Date...' : 'Pilih Hari & Tanggal...')}
         </span>
         <svg
-          className="w-4 h-4 text-[#9CAF88]"
+          className="w-4 h-4 text-[#364A31]"
           fill="none"
           viewBox="0 0 24 24"
           stroke="currentColor"
@@ -223,7 +223,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         <div
           onMouseDown={(e) => e.stopPropagation()}
           onClick={(e) => e.stopPropagation()}
-          className={`absolute left-0 ${position === 'up' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'} bg-[#FFFFFF] border border-[#1B1B1B]/12 rounded-2xl p-3 shadow-xl z-50 w-full sm:w-[275px] animate-in fade-in duration-150`}
+          className={`absolute left-0 ${position === 'up' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'} bg-[#F8F5EE] border border-[#C7AF90]/60 rounded-xl p-3 shadow-xl z-50 w-full sm:w-[275px] animate-in fade-in duration-150`}
         >
           <div className="flex items-center justify-between mb-1.5 px-1">
             <button
@@ -499,7 +499,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="button"
             onClick={handleNextStep1}
-            className="px-6 py-3 rounded-full bg-[#9CAF88] text-white text-sm font-medium hover:bg-[#8A9E78] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
+            className="px-7 py-3 rounded-lg bg-[#364A31] text-white text-sm font-semibold hover:bg-[#263A25] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
           >
             <span>{lang === 'en' ? "Next: Location & Time" : "Lanjut: Lokasi & Jadwal"}</span>
           </button>
@@ -512,14 +512,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="button"
             onClick={() => setStep(1)}
-            className="px-5 py-2.5 rounded-full border border-[#1B1B1B]/10 text-xs font-medium text-[#6B6B6B] hover:bg-[#E8EDE3] min-h-[44px] transition-colors cursor-pointer"
+            className="px-5 py-2.5 rounded-lg border border-[#C7AF90]/60 text-xs font-semibold text-[#534D2B] hover:bg-[#E6E2D3] min-h-[44px] transition-colors cursor-pointer"
           >
             {lang === 'en' ? "Back" : "Kembali"}
           </button>
           <button
             type="button"
             onClick={handleNextStep2}
-            className="px-6 py-3 rounded-full bg-[#9CAF88] text-white text-sm font-medium hover:bg-[#8A9E78] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
+            className="px-7 py-3 rounded-lg bg-[#364A31] text-white text-sm font-semibold hover:bg-[#263A25] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
           >
             <span>{lang === 'en' ? "Next: Guest Info" : "Lanjut: Data Pemesan"}</span>
           </button>
@@ -532,7 +532,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="button"
             onClick={() => setStep(2)}
-            className="px-5 py-2.5 rounded-full border border-[#1B1B1B]/10 text-xs font-medium text-[#6B6B6B] hover:bg-[#E8EDE3] min-h-[44px] transition-colors cursor-pointer"
+            className="px-5 py-2.5 rounded-lg border border-[#C7AF90]/60 text-xs font-semibold text-[#534D2B] hover:bg-[#E6E2D3] min-h-[44px] transition-colors cursor-pointer"
           >
             {lang === 'en' ? "Back" : "Kembali"}
           </button>
@@ -546,7 +546,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 e.preventDefault();
               }
             }}
-            className="px-8 py-3.5 rounded-full bg-[#25D366] hover:bg-[#20bd5a] text-white text-sm font-medium tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
+            className="px-8 py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-sm font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
           >
             <span>{lang === 'en' ? "Book via WhatsApp" : "Kirim Reservasi WhatsApp"}</span>
           </button>
@@ -585,29 +585,29 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 }}
                 className={`flex items-center space-x-1.5 text-xs font-semibold transition-colors cursor-pointer shrink-0 px-2.5 py-1 rounded-full ${
                   step === s.num
-                    ? 'bg-[#2D6A4F] text-white shadow-xs'
+                    ? 'bg-[#364A31] text-white shadow-xs'
                     : step > s.num
-                    ? 'text-[#2D6A4F] hover:bg-[#E8EDE3]'
-                    : 'text-[#8A9A86] hover:bg-[#E8EDE3]/50'
+                    ? 'text-[#364A31] hover:bg-[#E6E2D3]'
+                    : 'text-[#756B5C] hover:bg-[#E6E2D3]/50'
                 }`}
               >
                 <span
                   className={`w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full flex items-center justify-center font-sans text-xs font-bold transition-all ${
                     step === s.num
-                      ? 'bg-white text-[#2D6A4F] ring-2 ring-white/50 shadow-xs'
+                      ? 'bg-white text-[#364A31] ring-2 ring-white/50 shadow-xs'
                       : step > s.num
-                      ? 'bg-[#2D6A4F] text-white'
-                      : 'bg-[#D5DDD0] text-[#556B5C]'
+                      ? 'bg-[#364A31] text-white'
+                      : 'bg-[#C7AF90]/40 text-[#534D2B]'
                   }`}
                 >
                   {s.num}
                 </span>
-                <span className="font-sans font-semibold text-xs whitespace-nowrap">{s.label}</span>
+                <span className="font-sans font-bold text-xs whitespace-nowrap">{s.label}</span>
               </button>
               {idx < 2 && (
                 <div
                   className={`w-3 sm:w-5 h-0.5 transition-colors ${
-                    step > idx + 1 ? 'bg-[#2D6A4F]' : 'bg-[#D5DDD0]'
+                    step > idx + 1 ? 'bg-[#364A31]' : 'bg-[#C7AF90]/40'
                   }`}
                 />
               )}
@@ -636,13 +636,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       {selectedLayananList.map((item) => (
                         <span
                           key={item}
-                          className="inline-flex items-center space-x-1.5 bg-[#E8EDE3] border border-[#9CAF88]/40 text-[#6B6B6B] px-2.5 py-0.5 rounded-full shadow-xs"
+                          className="inline-flex items-center space-x-1.5 bg-[#E6E2D3] border border-[#C7AF90] text-[#302310] px-2.5 py-0.5 rounded-full shadow-xs"
                         >
-                          <span className="text-[11px] font-medium text-[#6B6B6B]">{item}</span>
+                          <span className="text-[11px] font-bold text-[#302310]">{item}</span>
                           <button
                             type="button"
                             onClick={() => removeLayanan(item)}
-                            className="w-3.5 h-3.5 rounded-full bg-[#1B1B1B]/10 hover:bg-[#9CAF88] hover:text-white flex items-center justify-center text-[#6B6B6B] text-xs leading-none transition-colors ml-0.5 cursor-pointer"
+                            className="w-3.5 h-3.5 rounded-full bg-[#364A31]/15 hover:bg-[#364A31] hover:text-white flex items-center justify-center text-[#302310] text-xs leading-none transition-colors ml-0.5 cursor-pointer"
                             title={lang === 'en' ? `Remove ${item}` : `Hapus ${item}`}
                           >
                             &times;
@@ -654,7 +654,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <button
                       type="button"
                       onClick={clearAllLayanan}
-                      className="text-xs text-[#9CAF88] hover:text-[#8A9E78] font-medium hover:underline shrink-0 ml-auto cursor-pointer"
+                      className="text-xs text-[#364A31] hover:text-[#263A25] font-bold hover:underline shrink-0 ml-auto cursor-pointer"
                     >
                       <span>{lang === 'en' ? "Clear All" : "Hapus Semua"}</span>
                     </button>
@@ -671,23 +671,23 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         onClick={() => toggleLayanan(item.title)}
                         className={`p-3 sm:p-3.5 rounded-xl border-2 cursor-pointer transition-all flex items-center justify-between space-x-2 ${
                           isSelected
-                            ? 'bg-[#E8EDE3] border-[#9CAF88] shadow-xs'
-                            : 'bg-white border-[#1B1B1B]/10 hover:border-[#9CAF88]/50 shadow-xs'
+                            ? 'bg-[#E6E2D3] border-[#364A31] shadow-xs'
+                            : 'bg-white border-[#C7AF90]/40 hover:border-[#364A31]/50 shadow-xs'
                         }`}
                       >
                         <div className="space-y-0.5">
-                          <span className="text-[10px] font-semibold uppercase text-[#2D6A4F] tracking-wider block">
+                          <span className="text-[10px] font-bold uppercase text-[#534D2B] tracking-wider block">
                             {item.category}
                           </span>
-                          <span className="font-serif text-xs sm:text-sm font-medium text-[#1B1B1B]">
+                          <span className="font-serif text-xs sm:text-sm font-bold text-[#302310]">
                             {item.title}
                           </span>
                         </div>
                         <div
                           className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 ${
                             isSelected
-                              ? 'bg-[#9CAF88] border-[#9CAF88] text-white'
-                              : 'border-[#CCC]'
+                              ? 'bg-[#364A31] border-[#364A31] text-white'
+                              : 'border-[#C7AF90]'
                           }`}
                         >
                           {isSelected && <span className="text-[10px] font-bold leading-none">✓</span>}
@@ -722,10 +722,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         setFormData((p) => ({ ...p, jumlahOrang: item.val }));
                         if (errors.jumlahOrang) setErrors((prev) => ({ ...prev, jumlahOrang: '' }));
                       }}
-                      className={`py-3 px-2 rounded-xl border text-center transition-all min-h-[44px] cursor-pointer ${
+                      className={`py-3 px-2 rounded-xl border text-center transition-all min-h-[44px] cursor-pointer font-bold ${
                         formData.jumlahOrang === item.val
-                          ? 'bg-[#9CAF88] border-[#9CAF88] text-white font-semibold shadow-xs'
-                          : 'bg-white border-[#1B1B1B]/10 text-[#6B6B6B] hover:border-[#9CAF88]'
+                          ? 'bg-[#364A31] border-[#364A31] text-white shadow-xs'
+                          : 'bg-white border-[#C7AF90]/50 text-[#534D2B] hover:border-[#364A31]'
                       }`}
                     >
                       {item.label}
@@ -814,7 +814,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     setFormData((p) => ({ ...p, alamatLengkap: e.target.value }));
                     if (errors.alamatLengkap) setErrors((prev) => ({ ...prev, alamatLengkap: '' }));
                   }}
-                  className="w-full px-5 py-3.5 rounded-2xl bg-white border border-[#1B1B1B]/12 text-xs sm:text-sm font-medium text-[#1B1B1B] shadow-xs hover:border-[#9CAF88] hover:bg-white focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#9CAF88]/15 focus:border-[#9CAF88] transition-all duration-200"
+                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-[#C7AF90]/60 text-xs sm:text-sm font-semibold text-[#302310] shadow-xs hover:border-[#364A31] hover:bg-white focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200"
                 />
                 {errors.alamatLengkap && (
                   <p className="text-xs text-red-600 mt-1">
@@ -897,7 +897,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     setFormData((p) => ({ ...p, nama: e.target.value }));
                     if (errors.nama) setErrors((prev) => ({ ...prev, nama: '' }));
                   }}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#1B1B1B]/15 text-sm font-medium text-[#1B1B1B] shadow-xs hover:border-[#9CAF88]/60 hover:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#9CAF88]/30 focus:border-[#9CAF88] transition-all duration-200 min-h-[46px]"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-[#C7AF90]/60 text-sm font-semibold text-[#302310] shadow-xs hover:border-[#364A31] hover:bg-white focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200 min-h-[46px]"
                 />
                 {errors.nama && (
                   <p className="text-xs text-red-600 mt-1">
@@ -916,7 +916,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   placeholder={lang === 'en' ? "e.g., Deep pressure on shoulders, allergic to lavender oil" : "contoh: Pijatan kencang di bahu, alergi minyak lavender"}
                   value={formData.catatanTambahan || ''}
                   onChange={(e) => setFormData((p) => ({ ...p, catatanTambahan: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl bg-[#FFFFFF] border border-[#1B1B1B]/15 text-sm font-medium text-[#1B1B1B] shadow-xs hover:border-[#9CAF88]/60 hover:bg-white focus:bg-white focus:outline-none focus:ring-2 focus:ring-[#9CAF88]/30 focus:border-[#9CAF88] transition-all duration-200"
+                  className="w-full px-4 py-3 rounded-xl bg-white border border-[#C7AF90]/60 text-sm font-semibold text-[#302310] shadow-xs hover:border-[#364A31] hover:bg-white focus:bg-white focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200"
                 />
               </div>
             </div>

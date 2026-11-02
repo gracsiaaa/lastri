@@ -39,7 +39,7 @@ export default function RootLayout({
       lang="en"
       className={`${playfair.variable} ${inter.variable} scroll-smooth antialiased`}
     >
-      <body className="min-h-screen bg-white text-[#1B1B1B] font-sans selection:bg-[#1B4332]/15 selection:text-[#1B4332]">
+      <body className="min-h-screen bg-[#F8F5EE] text-[#534D2B] font-sans selection:bg-[#C7AF90]/40 selection:text-[#302310]">
         {children}
       </body>
     </html>

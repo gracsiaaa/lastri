@@ -3,7 +3,7 @@
 import React from 'react';
 import { Language } from '../types';
 import { SPA_INFO } from '../data/spaData';
-import { Calendar, Heart } from 'lucide-react';
+import { Calendar } from 'lucide-react';
 
 interface FooterProps {
   lang: Language;
@@ -25,8 +25,8 @@ export const Footer: React.FC<FooterProps> = ({
   ];
 
   return (
-    <footer className="bg-[#1B4332] text-[#FFFFFF] pt-14 pb-10 border-t border-white/10 selection:bg-[#9CAF88] selection:text-white">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-10">
+    <footer className="bg-[#364A31] text-[#F8F5EE] pt-16 pb-12 border-t border-[#C7AF90]/30 selection:bg-[#C7AF90] selection:text-[#302310]">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="grid grid-cols-1 md:grid-cols-12 gap-8 lg:gap-12 items-start">
           <div className="md:col-span-5 space-y-4">
             <div className="flex items-center space-x-3">
@@ -46,7 +46,7 @@ export const Footer: React.FC<FooterProps> = ({
                 className="h-11 w-auto object-contain rounded-lg"
               />
               <div id="footer-logo-fallback" className="hidden items-center space-x-2.5">
-                <div className="w-9 h-9 rounded-full bg-[#1B4332] text-white flex items-center justify-center font-serif text-lg font-bold">
+                <div className="w-9 h-9 rounded-full bg-[#534D2B] text-white flex items-center justify-center font-serif text-lg font-bold">
                   L
                 </div>
                 <span className="font-serif text-xl text-white tracking-widest font-bold uppercase">
@@ -55,19 +55,19 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
             </div>
 
-            <p className="text-xs sm:text-sm text-[#E8EDE3]/75 leading-relaxed max-w-md">
+            <p className="text-sm text-[#F0E7D8]/90 font-medium leading-[1.7] max-w-md">
               {SPA_INFO.subtagline[lang]}
             </p>
 
             <div className="pt-2 flex items-center space-x-3">
-              <span className="text-xs text-[#E8EDE3]/60 font-medium">Sosmed & Kontak:</span>
+              <span className="text-xs text-[#E6E2D3]/80 font-semibold uppercase tracking-wider">Sosmed & Kontak:</span>
               
               <a
                 href="https://tiktok.com"
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="TikTok Lastri Spa"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#1B4332] text-white flex items-center justify-center transition-colors min-w-[44px] min-h-[44px]"
+                className="w-9 h-9 rounded-full bg-[#534D2B] hover:bg-[#263A25] text-white flex items-center justify-center transition-colors min-w-[44px] min-h-[44px]"
                 title="TikTok Lastri Spa"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -80,7 +80,7 @@ export const Footer: React.FC<FooterProps> = ({
                 target="_blank"
                 rel="noopener noreferrer"
                 aria-label="WhatsApp Lastri Spa"
-                className="w-9 h-9 rounded-full bg-white/10 hover:bg-[#25D366] text-white flex items-center justify-center transition-colors min-w-[44px] min-h-[44px]"
+                className="w-9 h-9 rounded-full bg-[#534D2B] hover:bg-[#263A25] text-white flex items-center justify-center transition-colors min-w-[44px] min-h-[44px]"
                 title="WhatsApp 0895347499653"
               >
                 <svg className="w-4 h-4 fill-current" viewBox="0 0 24 24">
@@ -90,11 +90,11 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          <div className="md:col-span-3 space-y-3 text-xs sm:text-sm">
-            <span className="font-serif text-base text-white font-semibold block">
+          <div className="md:col-span-3 space-y-3.5 text-xs sm:text-sm">
+            <span className="font-serif text-base text-[#F8F5EE] font-bold block">
               {lang === 'en' ? "Quick Menu" : "Menu Utama"}
             </span>
-            <ul className="space-y-2 text-[#E8EDE3]/75">
+            <ul className="space-y-2.5 text-[#F0E7D8]/85 font-medium">
               {navLinks.map((link) => (
                 <li key={link.href}>
                   <a href={link.href} className="hover:text-white transition-colors">
@@ -105,30 +105,31 @@ export const Footer: React.FC<FooterProps> = ({
             </ul>
           </div>
 
-          <div className="md:col-span-4 bg-white/5 p-5 rounded-2xl border border-white/10 space-y-3">
-            <span className="font-serif text-base text-white font-semibold block">
+          <div className="md:col-span-4 bg-[#534D2B]/50 p-6 rounded-2xl border border-[#C7AF90]/40 space-y-3.5">
+            <span className="font-serif text-base text-[#F8F5EE] font-bold block">
               {lang === 'en' ? "Online Reservation" : "Reservasi Layanan Spa"}
             </span>
-            <p className="text-xs text-[#E8EDE3]/70 leading-relaxed">
+            <p className="text-xs text-[#F0E7D8]/90 font-medium leading-[1.7]">
               {lang === 'en'
                 ? "Book your favorite home spa treatments easily through our direct online reservation form."
                 : "Pesan perawatan spa home service favorit Anda dengan mudah dan cepat melalui formulir reservasi online kami."}
             </p>
             <button
               onClick={onOpenBooking}
-              className="w-full py-3 px-5 rounded-full bg-[#1B4332] hover:bg-[#153F2A] text-white text-xs font-medium transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
+              className="w-full py-3 px-5 rounded-lg bg-[#F8F5EE] hover:bg-[#F0E7D8] text-[#302310] text-xs sm:text-sm font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
             >
-              <Calendar className="w-4 h-4" />
-              <span>{lang === 'en' ? "Book Now" : "Pesan Sekarang"}</span>
+              <Calendar className="w-4 h-4 text-[#364A31]" />
+              <span>{lang === 'en' ? "Book a Session" : "Pesan Perawatan"}</span>
             </button>
           </div>
         </div>
 
-        <div className="pt-6 border-t border-white/10 flex flex-col sm:flex-row items-center justify-between text-xs text-[#E8EDE3]/50 gap-4">
-          <p>© {new Date().getFullYear()} Lastri Spa Home Service Banyuwangi (0895347499653). All Rights Reserved.</p>
-          <p className="flex items-center space-x-1">
-            <span>{lang === 'en' ? "Professional On-Call Spa Service in Banyuwangi" : "Layanan Pijat Panggilan Profesional Banyuwangi"}</span>
-            <Heart className="w-3.5 h-3.5 text-[#1B4332] fill-[#1B4332]" />
+        <div className="pt-8 border-t border-[#C7AF90]/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#E6E2D3]/85 font-medium">
+          <p>
+            &copy; {new Date().getFullYear()} Lastri Spa Home Service Banyuwangi. All rights reserved.
+          </p>
+          <p className="text-[#E6E2D3]/80">
+            {lang === 'en' ? "Natural Organic Wellness Experience" : "Sensasi Relaksasi Alami & Profesional"}
           </p>
         </div>
       </div>

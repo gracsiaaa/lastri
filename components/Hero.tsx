@@ -1,4 +1,3 @@
-
 'use client';
 
 import React from 'react';
@@ -18,7 +17,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
   const contentOpacity = useTransform(scrollY, [0, 520], [1, 0.1]);
 
   return (
-    <section className="relative min-h-[140vh] flex flex-col justify-start items-center overflow-hidden bg-[#111111]">
+    <section className="relative min-h-[140vh] flex flex-col justify-start items-center overflow-hidden bg-[#1D1914]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div
           style={{ y: scrollY }}
@@ -34,12 +33,12 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
             className="w-full h-full object-cover will-change-transform"
           />
 
-          {/* Overlay hitam transparan tanpa warna hijau */}
-          <div className="absolute inset-0 bg-gradient-to-b from-black/65 via-black/50 to-black/35" />
+          {/* Deep warm luxury overlay - no pale haze */}
+          <div className="absolute inset-0 bg-gradient-to-b from-[#1D1914]/75 via-[#302310]/55 to-[#1D1914]/80" />
         </motion.div>
 
-        {/* Transisi halus ke background putih */}
-        <div className="absolute inset-x-0 bottom-0 h-56 sm:h-80 bg-gradient-to-b from-transparent via-white/60 to-white pointer-events-none z-10" />
+        {/* Seamless transition into Warm Ivory section */}
+        <div className="absolute inset-x-0 bottom-0 h-56 sm:h-80 bg-gradient-to-b from-transparent via-[#F8F5EE]/65 to-[#F8F5EE] pointer-events-none z-10" />
       </div>
 
       <motion.div
@@ -50,7 +49,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.6 }}
-          className="inline-flex items-center bg-white/20 backdrop-blur-md px-4.5 py-1.5 rounded-full border border-white/30 text-white text-xs sm:text-sm font-medium shadow-md tracking-wide"
+          className="inline-flex items-center bg-[#F8F5EE]/15 backdrop-blur-md px-5 py-2 rounded-full border border-[#C7AF90]/40 text-[#F8F5EE] text-xs sm:text-sm font-semibold shadow-lg tracking-wider uppercase"
         >
           <span>{SPA_INFO.tagline[lang]}</span>
         </motion.div>
@@ -59,7 +58,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.2 }}
-          className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-white font-semibold tracking-tight leading-[1.15] drop-shadow-md"
+          className="font-serif text-3xl sm:text-5xl md:text-6xl lg:text-7xl text-[#F8F5EE] font-semibold tracking-tight leading-[1.18] drop-shadow-lg"
         >
           {SPA_INFO.headline[lang]}
         </motion.h1>
@@ -68,7 +67,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
           initial={{ opacity: 0, y: 25 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.8, delay: 0.4 }}
-          className="max-w-2xl mx-auto text-base sm:text-lg text-white font-normal leading-relaxed drop-shadow"
+          className="max-w-2xl mx-auto text-base sm:text-lg text-[#F8F5EE] font-medium leading-[1.75] drop-shadow-md"
         >
           {SPA_INFO.subtagline[lang]}
         </motion.p>
@@ -83,7 +82,7 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
             href={getWhatsAppUrl()}
             target="_blank"
             rel="noopener noreferrer"
-            className="w-full sm:w-auto px-8 py-4 rounded-full bg-[#9CAF88] hover:bg-[#8A9E78] text-white text-sm font-medium tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[44px] group"
+            className="w-full sm:w-auto px-8 py-4 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-[#FFFFFF] text-sm font-semibold tracking-wide shadow-lg hover:shadow-xl transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[48px] group cursor-pointer"
           >
             <MessageSquare className="w-4.5 h-4.5 text-white fill-white flex-shrink-0 group-hover:scale-110 transition-transform" />
             <span>{lang === 'en' ? "Book Now" : "Pesan Sekarang"}</span>
@@ -91,10 +90,10 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
 
           <a
             href="#treatments"
-            className="w-full sm:w-auto px-8 py-4 rounded-full border border-white/30 bg-white/10 hover:bg-white/20 backdrop-blur-md text-white text-sm font-medium tracking-wide shadow-sm hover:shadow-lg hover:border-white/50 transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[44px] group"
+            className="w-full sm:w-auto px-8 py-4 rounded-lg border border-[#C7AF90]/60 bg-[#F0E7D8]/20 hover:bg-[#F0E7D8]/35 backdrop-blur-md text-[#F8F5EE] text-sm font-semibold tracking-wide shadow-sm hover:shadow-lg hover:border-[#C7AF90] transition-all duration-300 flex items-center justify-center space-x-2.5 min-h-[48px] group cursor-pointer"
           >
             <span>{lang === 'en' ? "Discover Treatments" : "Lihat Menu Perawatan"}</span>
-            <ArrowDown className="w-4 h-4 text-white/80 group-hover:text-white group-hover:translate-y-1 transition-all" />
+            <ArrowDown className="w-4 h-4 text-[#F8F5EE]/90 group-hover:text-white group-hover:translate-y-1 transition-all" />
           </a>
         </motion.div>
       </motion.div>

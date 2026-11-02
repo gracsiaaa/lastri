@@ -4,23 +4,40 @@
   --font-serif: var(--font-playfair), Georgia, serif;
   --font-sans: var(--font-inter), system-ui, sans-serif;
 
-  --color-bg-primary: #FFFFFF;
-  --color-bg-secondary: #E8EDE3;
-  --color-brand-accent: #9CAF88;
-  --color-brand-accent-hover: #8A9E78;
-  --color-brand-olive: #2D6A4F;
-  --color-text-primary: #1B1B1B;
-  --color-text-muted: #6B6B6B;
-  --color-border-soft: rgba(0, 0, 0, 0.06);
+  /* Premium Earthy Luxury Spa Palette */
+  --color-primary-forest: #364A31;
+  --color-primary-olive: #534D2B;
+  --color-primary-darkbrown: #302310;
 
-  --color-cream: #FFFFFF;
-  --color-sand: #E8EDE3;
-  --color-sand-dark: #E0E0E0;
-  --color-terracotta: #1B4332;
-  --color-terracotta-hover: #153F2A;
-  --color-olive: #2D6A4F;
-  --color-slate-dark: #1B1B1B;
-  --color-slate-muted: #6B6B6B;
+  --color-bg-ivory: #F8F5EE;
+  --color-bg-cream: #F0E7D8;
+  --color-bg-sagebeige: #E6E2D3;
+
+  --color-accent-sand: #C7AF90;
+  --color-accent-taupe: #A29672;
+
+  --color-text-heading: #302310;
+  --color-text-body: #534D2B;
+  --color-text-secondary: #756B5C;
+
+  /* Legacy tokens mapped to Earthy Luxury Spa values */
+  --color-bg-primary: #F8F5EE;
+  --color-bg-secondary: #F0E7D8;
+  --color-brand-accent: #364A31;
+  --color-brand-accent-hover: #263A25;
+  --color-brand-olive: #534D2B;
+  --color-text-primary: #302310;
+  --color-text-muted: #756B5C;
+  --color-border-soft: rgba(83, 77, 43, 0.15);
+
+  --color-cream: #F8F5EE;
+  --color-sand: #F0E7D8;
+  --color-sand-dark: #E6E2D3;
+  --color-terracotta: #364A31;
+  --color-terracotta-hover: #263A25;
+  --color-olive: #534D2B;
+  --color-slate-dark: #302310;
+  --color-slate-muted: #534D2B;
 }
 
 /* Custom Scrollbar */
@@ -29,41 +46,41 @@
 }
 
 ::-webkit-scrollbar-track {
-  background: #FFFFFF;
+  background: #F8F5EE;
 }
 
 ::-webkit-scrollbar-thumb {
-  background: #E0E0E0;
+  background: #C7AF90;
   border-radius: 4px;
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: #8A9E78;
+  background: #364A31;
 }
 
 /* Glassmorphism */
 .glass-nav {
-  background: rgba(255, 255, 255, 0.92);
+  background: rgba(248, 245, 238, 0.94);
   backdrop-filter: blur(14px);
   -webkit-backdrop-filter: blur(14px);
   border: none !important;
-  border-bottom: none !important;
-  box-shadow: none !important;
+  border-bottom: 1px solid rgba(83, 77, 43, 0.12) !important;
+  box-shadow: 0 4px 20px rgba(48, 35, 16, 0.05) !important;
   outline: none !important;
 }
 
 .glass-card {
-  background: rgba(232, 237, 227, 0.85);
+  background: rgba(240, 231, 216, 0.9);
   backdrop-filter: blur(12px);
   -webkit-backdrop-filter: blur(12px);
-  border: 1px solid rgba(0, 0, 0, 0.06);
+  border: 1px solid rgba(199, 175, 144, 0.4);
 }
 
 .glass-modal {
-  background: #FFFFFF;
+  background: #F8F5EE;
   backdrop-filter: blur(20px);
   -webkit-backdrop-filter: blur(20px);
-  border: 1px solid rgba(0, 0, 0, 0.08);
+  border: 1px solid rgba(199, 175, 144, 0.35);
 }
 
 /* Hide scrollbar for clean tab scrolling */
@@ -89,30 +106,30 @@
   appearance: none;
   -webkit-appearance: none;
   -moz-appearance: none;
-  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%29CAF88%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
+  background-image: url("data:image/svg+xml;charset=UTF-8,%3Csvg%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20width%3D%2216%22%20height%3D%2216%22%20viewBox%3D%220%200%2024%2024%22%20fill%3D%22none%22%20stroke%3D%22%23364A31%22%20stroke-width%3D%222.5%22%20stroke-linecap%3D%22round%22%20stroke-linejoin%3D%22round%22%3E%3Cpolyline%20points%3D%226%209%2012%2015%2018%209%22%3E%3C%2Fpolyline%3E%3C%2Fsvg%3E");
   background-repeat: no-repeat;
   background-position: right 1.25rem center;
   background-size: 1.1rem;
   padding-right: 3rem !important;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   transition: all 0.2s ease-in-out;
 }
 
 .select-modern:hover {
-  border-color: rgba(156, 175, 136, 0.6);
+  border-color: #364A31;
   background-color: #FFFFFF;
 }
 
 .select-modern:focus {
   outline: none;
-  border-color: #9CAF88;
-  box-shadow: 0 0 0 4px rgba(156, 175, 136, 0.12);
+  border-color: #364A31;
+  box-shadow: 0 0 0 4px rgba(54, 74, 49, 0.15);
   background-color: #FFFFFF;
 }
 
 .select-modern option {
-  background-color: #FFFFFF;
-  color: #1B1B1B;
+  background-color: #F8F5EE;
+  color: #302310;
   padding: 12px 16px;
   font-size: 14px;
 }
@@ -120,33 +137,33 @@
 /* Custom Modern Date Picker */
 input[type="date"].date-modern {
   color-scheme: light;
-  border-radius: 1rem;
+  border-radius: 0.75rem;
   transition: all 0.2s ease-in-out;
 }
 
 input[type="date"].date-modern:hover {
-  border-color: rgba(156, 175, 136, 0.6);
+  border-color: #364A31;
   background-color: #FFFFFF;
 }
 
 input[type="date"].date-modern:focus {
   outline: none;
-  border-color: #9CAF88;
-  box-shadow: 0 0 0 4px rgba(156, 175, 136, 0.12);
+  border-color: #364A31;
+  box-shadow: 0 0 0 4px rgba(54, 74, 49, 0.15);
   background-color: #FFFFFF;
 }
 
 input[type="date"].date-modern::-webkit-calendar-picker-indicator {
-  opacity: 0.75;
+  opacity: 0.85;
   cursor: pointer;
   padding: 6px;
   border-radius: 8px;
   transition: all 0.2s ease;
-  filter: invert(25%) sepia(30%) saturate(800%) hue-rotate(130deg);
+  filter: invert(24%) sepia(20%) saturate(1200%) hue-rotate(65deg);
 }
 
 input[type="date"].date-modern::-webkit-calendar-picker-indicator:hover {
   opacity: 1;
-  background-color: rgba(156, 175, 136, 0.1);
+  background-color: rgba(54, 74, 49, 0.1);
   transform: scale(1.08);
 }
