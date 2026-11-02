@@ -150,7 +150,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                       className="flex-1 py-3 px-4 rounded-lg border border-[#364A31] text-[#364A31] hover:bg-[#364A31] hover:text-white bg-transparent text-xs sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center space-x-1.5 min-h-[44px] shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
                     >
                       <Eye className="w-4 h-4 text-current transition-colors" />
-                      <span>{lang === 'en' ? "Detail" : "Detail Perawatan"}</span>
+                      <span>Detail</span>
                     </button>
 
                     <button
