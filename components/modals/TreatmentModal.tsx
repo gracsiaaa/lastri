@@ -65,15 +65,15 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
           </div>
         </div>
 
-        <p className="text-sm sm:text-base text-[#534D2B] leading-[1.75] font-medium -mt-1.5">
+        <p className="text-base sm:text-base text-[#534D2B] leading-[1.75] font-medium -mt-1.5">
           {typeof treatment.fullDesc === 'string' ? treatment.fullDesc : treatment.fullDesc[lang]}
         </p>
 
         <div className="space-y-3">
-          <h4 className="font-sans text-sm sm:text-base text-[#302310] font-bold">
+          <h4 className="font-sans text-base sm:text-base text-[#302310] font-bold">
             {lang === 'en' ? "Benefits" : "Manfaat Utama"}
           </h4>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-xs sm:text-sm">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm sm:text-sm">
             {(Array.isArray(treatment.benefits) ? treatment.benefits : treatment.benefits[lang]).map((benefit, idx) => (
               <li key={idx} className="flex items-start space-x-2.5 text-[#534D2B] font-medium">
                 <Check className="w-4 h-4 text-[#364A31] flex-shrink-0 mt-0.5" />
@@ -84,14 +84,14 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
         </div>
 
         <div className="space-y-3 pt-1">
-          <h4 className="font-sans text-sm sm:text-base text-[#302310] font-bold">
+          <h4 className="font-sans text-base sm:text-base text-[#302310] font-bold">
             {lang === 'en' ? "Ritual Steps" : "Tahapan Ritual Spa"}
           </h4>
           <div className="space-y-2.5">
             {(Array.isArray(treatment.steps) ? treatment.steps : treatment.steps[lang]).map((step, idx) => (
               <div
                 key={idx}
-                className="flex items-center space-x-4 p-3.5 rounded-xl bg-[#F0E7D8] border border-[#C7AF90]/40 text-xs sm:text-sm"
+                className="flex items-center space-x-4 p-3.5 rounded-xl bg-[#F0E7D8] border border-[#C7AF90]/40 text-sm sm:text-sm"
               >
                 <div className="w-7 h-7 rounded-full bg-[#364A31] text-white font-sans text-xs font-bold flex items-center justify-center flex-shrink-0">
                   {idx + 1}
@@ -105,7 +105,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
         <div className="pt-4 border-t border-[#C7AF90]/40 flex items-center justify-end">
           <button
             onClick={() => onBookTreatment(treatment)}
-            className="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-xs sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
+            className="w-full sm:w-auto px-7 py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-sm sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
           >
             <Calendar className="w-4 h-4" />
             <span>{lang === 'en' ? "Book This Treatment" : "Pesan Perawatan Ini"}</span>
