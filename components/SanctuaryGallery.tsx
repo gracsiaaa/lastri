@@ -39,7 +39,7 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
           <h2 className="font-sans text-3xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
             {lang === 'en' ? "Lastri Spa Gallery" : "Galeri Lastri Spa"}
           </h2>
-          <p className="text-base sm:text-base text-[#534D2B] font-medium leading-[1.7]">
+          <p className="text-sm sm:text-base text-[#534D2B] font-medium leading-[1.7]">
             {lang === 'en'
               ? "Explore our sterile equipment setups, pure organic ingredients, and comfortable care sessions."
               : "Lihat kesiapan perlengkapan steril, racikan bahan alami murni, dan kenyamanan sesi perawatan."}
