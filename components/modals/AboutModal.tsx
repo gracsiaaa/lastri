@@ -96,12 +96,12 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                 </div>
 
                 {/* Title */}
-                <h4 className="font-sans text-sm sm:text-[15px] font-bold text-[#302310] leading-snug mb-2 min-h-[38px] flex items-center justify-center">
+                <h4 className="font-sans text-base sm:text-[15px] font-bold text-[#302310] leading-snug mb-2 min-h-[38px] flex items-center justify-center">
                   {pillar.title[lang]}
                 </h4>
 
                 {/* Concise Description */}
-                <p className="text-xs text-[#534D2B] font-medium leading-relaxed">
+                <p className="text-sm text-[#534D2B] font-medium leading-relaxed">
                   {pillar.description[lang]}
                 </p>
               </div>
@@ -173,10 +173,10 @@ export const AboutModal: React.FC<AboutModalProps> = ({
                     </div>
                     <span className="text-xs font-bold font-serif text-[#C7AF90]">{item.num}</span>
                   </div>
-                  <h5 className="font-sans text-xs sm:text-sm font-bold text-[#302310]">
+                  <h5 className="font-sans text-sm sm:text-sm font-bold text-[#302310]">
                     {item.title[lang]}
                   </h5>
-                  <p className="text-xs text-[#534D2B] font-medium leading-relaxed">
+                  <p className="text-sm text-[#534D2B] font-medium leading-relaxed">
                     {item.desc[lang]}
                   </p>
                 </div>

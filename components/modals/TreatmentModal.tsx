@@ -73,7 +73,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
           <h4 className="font-sans text-base sm:text-base text-[#302310] font-bold">
             {lang === 'en' ? "Benefits" : "Manfaat Utama"}
           </h4>
-          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-sm sm:text-sm">
+          <ul className="grid grid-cols-1 sm:grid-cols-2 gap-2.5 text-base sm:text-sm">
             {(Array.isArray(treatment.benefits) ? treatment.benefits : treatment.benefits[lang]).map((benefit, idx) => (
               <li key={idx} className="flex items-start space-x-2.5 text-[#534D2B] font-medium">
                 <Check className="w-4 h-4 text-[#364A31] flex-shrink-0 mt-0.5" />
