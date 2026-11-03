@@ -541,15 +541,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             {lang === 'en' ? "Back" : "Kembali"}
           </button>
           <button
-            type="submit"
-            form="booking-form"
-            onClick={(e) => {
-              e.preventDefault();
+            type="button"
+            onClick={() => {
               const valid1 = validateStep1();
               const valid2 = validateStep2();
               const valid3 = validateStep3();
               if (valid1 && valid2 && valid3) {
-                handleSubmit(e);
+                const waUrl = createWhatsAppBookingUrl(formData);
+                window.open(waUrl, '_blank', 'noopener,noreferrer');
+                const randomCode = Math.floor(1000 + Math.random() * 9000);
+                const refId = `LASTRI-${randomCode}`;
+                if (onBookingSubmitted) {
+                  onBookingSubmitted(formData, refId);
+                }
               }
             }}
             className="px-8 py-4 rounded-xl bg-[#364A31] hover:bg-[#263A25] text-white text-base sm:text-sm font-bold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[48px] cursor-pointer"
@@ -626,17 +630,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       bgClassName="bg-white"
     >
       <div className="space-y-4 text-[#1B1B1B] -mt-2 sm:-mt-4">
-        <form id="booking-form" onSubmit={(e) => {
-          e.preventDefault();
-          if (step === 3) {
-            const valid1 = validateStep1();
-            const valid2 = validateStep2();
-            const valid3 = validateStep3();
-            if (valid1 && valid2 && valid3) {
-              handleSubmit(e);
-            }
-          }
-        }} className="space-y-4">
+        <div id="booking-form" className="space-y-4">
           {/* STEP 1: DETAIL RESERVASI (Layanan & Jumlah Orang) */}
           {step === 1 && (
             <div className="space-y-4">
@@ -945,7 +939,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               </div>
             </div>
           )}
-        </form>
+        </div>
       </div>
     </BaseModal>
   );
