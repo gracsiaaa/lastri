@@ -147,7 +147,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                         e.stopPropagation();
                         onSelectTreatment(treatment);
                       }}
-                      className="w-full py-3 px-3 rounded-lg border border-[#364A31] text-[#364A31] hover:bg-[#364A31] hover:text-white bg-transparent text-sm sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center space-x-1.5 min-h-[46px] shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
+                      className="w-full py-3 px-3 rounded-lg border border-[#364A31] text-[#364A31] hover:bg-[#364A31] hover:text-white bg-transparent text-base sm:text-sm font-semibold transition-all duration-300 flex items-center justify-center space-x-1.5 min-h-[46px] shadow-xs hover:shadow-md hover:scale-[1.02] active:scale-[0.98] group cursor-pointer"
                     >
                       <Eye className="w-4 h-4 text-current transition-colors shrink-0" />
                       <span>Detail</span>
@@ -158,7 +158,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                         e.stopPropagation();
                         onBookTreatmentDirect(treatment);
                       }}
-                      className="w-full py-3 px-3 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-[#FFFFFF] text-sm sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[46px] flex items-center justify-center space-x-1 group cursor-pointer"
+                      className="w-full py-3 px-3 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-[#FFFFFF] text-base sm:text-sm font-semibold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[46px] flex items-center justify-center space-x-1 group cursor-pointer"
                     >
                       <span>{lang === 'en' ? "Book Now" : "Pesan Sekarang"}</span>
                       <ChevronRight className="w-4 h-4 text-white group-hover:translate-x-0.5 transition-transform shrink-0" />
