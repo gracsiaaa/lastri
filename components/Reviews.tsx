@@ -128,9 +128,9 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
 
               <div className="pt-4 border-t border-[#C7AF90]/40 flex items-center justify-between gap-3">
                 <div className="min-w-0">
-                  <h4 className="font-sans text-base text-[#302310] font-bold leading-snug truncate">
+                  <p className="font-sans text-base text-[#302310] font-bold leading-snug truncate">
                     {review.name}
-                  </h4>
+                  </p>
                   <span className="text-sm text-[#756B5C] font-semibold flex items-center space-x-1 truncate mt-0.5">
                     <Clock className="w-3 h-3 text-[#364A31] shrink-0" />
                     <span>{review.timeAgo}</span>

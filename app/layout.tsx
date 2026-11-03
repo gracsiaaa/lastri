@@ -20,8 +20,8 @@ const siteUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lastri.vercel.app';
 
 export const metadata: Metadata = {
   metadataBase: new URL(siteUrl),
-  title: "Lastri Spa Home Service Banyuwangi & Klatak | Pijat Panggilan Profesional",
-  description: "Layanan Pijat Panggilan & Spa Home Service Profesional di Banyuwangi, Klatak, Giri, Glagah, Licin, Kabat & Rogojampi. Terapis wanita bersertifikat langsung ke rumah, hotel, dan vila Anda dengan peralatan steril lengkap.",
+  title: "Lastri Spa Banyuwangi | Pijat Panggilan Profesional",
+  description: "Pijat panggilan & spa home service profesional di Banyuwangi. Terapis wanita bersertifikat ke rumah, hotel & vila dengan peralatan steril lengkap.",
   keywords: [
     "spa banyuwangi",
     "pijat panggilan banyuwangi",
@@ -39,6 +39,10 @@ export const metadata: Metadata = {
   authors: [{ name: "Lastri Spa Home Service Banyuwangi" }],
   creator: "Lastri Spa",
   publisher: "Lastri Spa",
+  icons: {
+    icon: "/favicon.ico",
+    apple: "/logo.jpg",
+  },
   alternates: {
     canonical: siteUrl,
   },
@@ -46,9 +50,9 @@ export const metadata: Metadata = {
     type: "website",
     locale: "id_ID",
     url: siteUrl,
-    siteName: "Lastri Spa Home Service Banyuwangi",
-    title: "Lastri Spa Home Service Banyuwangi & Klatak | Pijat Panggilan Profesional",
-    description: "Nikmati sensasi relaksasi spa mewah di kenyamanan rumah, hotel, atau vila Anda. Area layanan Kota Banyuwangi, Klatak, Giri, Glagah, Licin & sekitarnya.",
+    siteName: "Lastri Spa Banyuwangi",
+    title: "Lastri Spa Banyuwangi | Pijat Panggilan Profesional",
+    description: "Pijat panggilan & spa home service profesional di Banyuwangi. Terapis wanita bersertifikat ke rumah, hotel & vila dengan peralatan steril lengkap.",
     images: [
       {
         url: "/spa1.jpg",
@@ -60,8 +64,8 @@ export const metadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: "Lastri Spa Home Service Banyuwangi & Klatak",
-    description: "Layanan pijat panggilan & spa hotel profesional di Banyuwangi & Klatak. Terapis master wanita hadir langsung ke tempat Anda.",
+    title: "Lastri Spa Banyuwangi | Pijat Panggilan Profesional",
+    description: "Pijat panggilan & spa home service profesional di Banyuwangi. Terapis wanita bersertifikat hadir langsung ke tempat Anda.",
     images: ["/spa1.jpg"],
   },
   robots: {
@@ -125,8 +129,8 @@ const localBusinessSchema = {
         "Saturday",
         "Sunday"
       ],
-      "opens": "08:00",
-      "closes": "22:00"
+      "opens": "00:00",
+      "closes": "23:59"
     }
   ],
   "aggregateRating": {
@@ -147,6 +151,7 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} scroll-smooth antialiased`}
     >
       <head>
+        <link rel="apple-touch-icon" href="/logo.jpg" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
