@@ -12,6 +12,7 @@ interface BaseModalProps {
   children: React.ReactNode;
   footer?: React.ReactNode;
   maxWidth?: string;
+  bgClassName?: string;
 }
 
 export const BaseModal: React.FC<BaseModalProps> = ({
@@ -22,6 +23,7 @@ export const BaseModal: React.FC<BaseModalProps> = ({
   children,
   footer,
   maxWidth = 'max-w-2xl',
+  bgClassName = 'bg-[#F8F5EE]',
 }) => {
   // Prevent background body scroll when modal is open
   useEffect(() => {
@@ -66,20 +68,20 @@ export const BaseModal: React.FC<BaseModalProps> = ({
             exit={{ opacity: 0, y: 30, scale: 0.96 }}
             transition={{ type: 'spring', damping: 25, stiffness: 300 }}
             onClick={(e) => e.stopPropagation()}
-            className={`relative w-full ${maxWidth} max-h-[92vh] sm:max-h-[88vh] bg-[#F8F5EE] text-[#534D2B] rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col z-10 border border-[#C7AF90]/50 overflow-hidden`}
+            className={`relative w-full ${maxWidth} max-h-[92vh] sm:max-h-[88vh] ${bgClassName} text-[#534D2B] rounded-t-3xl sm:rounded-3xl shadow-2xl flex flex-col z-10 border border-[#C7AF90]/50 overflow-hidden`}
           >
             {(title || subtitle) ? (
-              <div className="sticky top-0 z-20 flex items-center justify-between px-6 sm:px-8 py-4 sm:py-5 bg-[#F8F5EE]/95 backdrop-blur-md border-b border-[#C7AF90]/40 gap-4 shrink-0 rounded-t-3xl sm:rounded-t-3xl">
+              <div className={`sticky top-0 z-20 flex items-center justify-between px-6 sm:px-8 py-4 sm:py-5 ${bgClassName === 'bg-white' ? 'bg-white/95' : 'bg-[#F8F5EE]/95'} backdrop-blur-md border-b border-[#C7AF90]/40 gap-4 shrink-0 rounded-t-3xl sm:rounded-t-3xl`}>
                 <div className="flex-1 min-w-0">
                   {title && (
-                    <h3 className="font-serif text-xl sm:text-2xl text-[#302310] font-bold leading-tight truncate">
+                    <h3 className="font-serif text-2xl sm:text-2xl text-[#302310] font-bold leading-tight truncate">
                       {title}
                     </h3>
                   )}
                   {subtitle && (
                     <div className="mt-1.5">
                       {typeof subtitle === 'string' ? (
-                        <p className="text-xs sm:text-sm text-[#364A31] font-semibold tracking-wide">
+                        <p className="text-sm sm:text-sm text-[#364A31] font-semibold tracking-wide">
                           {subtitle}
                         </p>
                       ) : (
@@ -111,7 +113,7 @@ export const BaseModal: React.FC<BaseModalProps> = ({
             </div>
 
             {footer && (
-              <div className="sticky bottom-0 z-20 px-6 sm:px-8 py-4 bg-[#F8F5EE]/95 backdrop-blur-md border-t border-[#C7AF90]/40 shrink-0 rounded-b-3xl sm:rounded-b-3xl">
+              <div className={`sticky bottom-0 z-20 px-6 sm:px-8 py-4 ${bgClassName === 'bg-white' ? 'bg-white/95' : 'bg-[#F8F5EE]/95'} backdrop-blur-md border-t border-[#C7AF90]/40 shrink-0 rounded-b-3xl sm:rounded-b-3xl`}>
                 {footer}
               </div>
             )}
