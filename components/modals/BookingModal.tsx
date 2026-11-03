@@ -52,7 +52,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
           e.stopPropagation();
           setIsOpen((prev) => !prev);
         }}
-        className={`w-full px-5 py-3.5 rounded-xl bg-white border text-left text-sm sm:text-base font-semibold transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
+        className={`w-full px-5 py-3.5 rounded-xl bg-white hover:bg-white focus:bg-white border text-left text-base sm:text-base font-semibold transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
           isOpen
             ? 'border-[#364A31] ring-4 ring-[#364A31]/15'
             : error
@@ -75,7 +75,7 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
       </button>
 
       {isOpen && (
-        <div className={`absolute left-0 right-0 ${position === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'} bg-[#F8F5EE] border border-[#C7AF90]/60 rounded-xl shadow-xl z-50 overflow-hidden py-1.5 animate-in fade-in duration-150 max-h-[190px] overflow-y-auto`}>
+        <div className={`absolute left-0 right-0 ${position === 'up' ? 'bottom-full mb-2' : 'top-full mt-2'} bg-white border border-[#C7AF90]/60 rounded-xl shadow-xl z-50 overflow-hidden py-1.5 animate-in fade-in duration-150 max-h-[190px] overflow-y-auto`}>
           {options.map((opt) => {
             const isSelected = opt.value === value;
             return (
@@ -87,10 +87,10 @@ const CustomSelect: React.FC<CustomSelectProps> = ({
                   onChange(opt.value);
                   setIsOpen(false);
                 }}
-                className={`px-4 py-3 text-sm sm:text-base font-semibold cursor-pointer transition-colors flex items-center justify-between ${
+                className={`px-4 py-3 text-base sm:text-base font-semibold cursor-pointer transition-colors flex items-center justify-between ${
                   isSelected
-                    ? 'bg-[#E6E2D3] text-[#364A31]'
-                    : 'text-[#302310] hover:bg-[#F0E7D8]'
+                    ? 'bg-neutral-100 text-[#364A31]'
+                    : 'text-[#302310] hover:bg-neutral-50'
                 }`}
               >
                 <span>{opt.label}</span>
@@ -197,7 +197,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
           e.stopPropagation();
           setIsOpen((prev) => !prev);
         }}
-        className={`w-full px-5 py-3.5 rounded-xl bg-white border text-left text-sm sm:text-base font-semibold transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
+        className={`w-full px-5 py-3.5 rounded-xl bg-white hover:bg-white focus:bg-white border text-left text-base sm:text-base font-semibold transition-all duration-200 min-h-[48px] flex items-center justify-between cursor-pointer shadow-xs ${
           isOpen
             ? 'border-[#364A31] ring-4 ring-[#364A31]/15'
             : error
@@ -223,23 +223,23 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
         <div
           onMouseDown={(e) => e.stopPropagation()}
           onClick={(e) => e.stopPropagation()}
-          className={`absolute left-0 ${position === 'up' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'} bg-[#F8F5EE] border border-[#C7AF90]/60 rounded-xl p-3 shadow-xl z-50 w-full sm:w-[275px] animate-in fade-in duration-150`}
+          className={`absolute left-0 ${position === 'up' ? 'bottom-full mb-1.5' : 'top-full mt-1.5'} bg-white border border-[#C7AF90]/60 rounded-xl p-3 shadow-xl z-50 w-full sm:w-[285px] animate-in fade-in duration-150`}
         >
-          <div className="flex items-center justify-between mb-1.5 px-1">
+          <div className="flex items-center justify-between mb-2 px-1">
             <button
               type="button"
               onClick={handlePrevMonth}
-              className="w-6 h-6 rounded-full hover:bg-[#E8EDE3] flex items-center justify-center text-[#1B1B1B] font-semibold text-xs cursor-pointer"
+              className="w-7 h-7 rounded-full hover:bg-neutral-100 flex items-center justify-center text-[#1B1B1B] font-semibold text-sm cursor-pointer"
             >
               ‹
             </button>
-            <span className="text-xs font-semibold text-[#1B1B1B]">
+            <span className="text-sm font-bold text-[#1B1B1B]">
               {monthNames[month]} {year}
             </span>
             <button
               type="button"
               onClick={handleNextMonth}
-              className="w-6 h-6 rounded-full hover:bg-[#E8EDE3] flex items-center justify-center text-[#1B1B1B] font-semibold text-xs cursor-pointer"
+              className="w-7 h-7 rounded-full hover:bg-neutral-100 flex items-center justify-center text-[#1B1B1B] font-semibold text-sm cursor-pointer"
             >
               ›
             </button>
@@ -247,7 +247,7 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
 
           <div className="grid grid-cols-7 gap-0.5 text-center mb-1">
             {['Min', 'Sen', 'Sel', 'Rab', 'Kam', 'Jum', 'Sab'].map((d) => (
-              <span key={d} className="text-[9px] font-semibold uppercase text-[#7A8A7E]">
+              <span key={d} className="text-[10px] font-bold uppercase text-[#7A8A7E]">
                 {d}
               </span>
             ))}
@@ -274,12 +274,12 @@ const CustomDatePicker: React.FC<CustomDatePickerProps> = ({
                     e.stopPropagation();
                     handleSelectDay(dayNum);
                   }}
-                  className={`w-7 h-7 rounded-full text-[11px] font-medium flex items-center justify-center transition-all mx-auto ${
+                  className={`w-8 h-8 rounded-full text-xs font-semibold flex items-center justify-center transition-all mx-auto ${
                     isSelected
-                      ? 'bg-[#9CAF88] text-white font-bold shadow-xs'
+                      ? 'bg-[#364A31] text-white font-bold shadow-xs'
                       : isPast
                       ? 'text-[#CCC] cursor-not-allowed'
-                      : 'text-[#1B1B1B] hover:bg-[#E8EDE3] cursor-pointer'
+                      : 'text-[#1B1B1B] hover:bg-neutral-100 cursor-pointer'
                   }`}
                 >
                   {dayNum}
@@ -310,6 +310,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 }) => {
   const [step, setStep] = useState<1 | 2 | 3>(1);
   const [errors, setErrors] = useState<Record<string, string>>({});
+  const [showNamaWarning, setShowNamaWarning] = useState(false);
   const [rawIsoDate, setRawIsoDate] = useState<string>('');
   const [selectedLayananList, setSelectedLayananList] = useState<string[]>([]);
   const stepNavRef = React.useRef<HTMLDivElement>(null);
@@ -362,6 +363,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
     if (isOpen) {
       setStep(1);
       setErrors({});
+      setShowNamaWarning(false);
       const tomorrowStr = new Date(Date.now() + 86400000).toISOString().split('T')[0];
       setRawIsoDate(tomorrowStr);
       const formattedTomorrow = formatDateLocale(tomorrowStr);
@@ -438,16 +440,19 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   };
 
   const validateStep3 = () => {
-    const errs: Record<string, string> = {};
-    if (!formData.nama.trim()) errs.nama = lang === 'en' ? 'Guest name is required.' : 'Nama Pemesan wajib diisi.';
-    setErrors(errs);
-    return Object.keys(errs).length === 0;
+    if (!formData.nama.trim()) {
+      setShowNamaWarning(true);
+      return false;
+    }
+    setShowNamaWarning(false);
+    return true;
   };
 
   const validateAll = () => {
     const s1 = validateStep1();
     const s2 = validateStep2();
-    return s1 && s2;
+    const s3 = validateStep3();
+    return s1 && s2 && s3;
   };
 
   const handleNextStep1 = () => {
@@ -498,7 +503,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="button"
             onClick={handleNextStep1}
-            className="px-7 py-3 rounded-lg bg-[#364A31] text-white text-sm font-semibold hover:bg-[#263A25] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
+            className="w-full sm:w-auto px-8 py-3.5 rounded-xl bg-[#364A31] text-white text-base sm:text-sm font-bold hover:bg-[#263A25] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[48px] cursor-pointer"
           >
             <span>{lang === 'en' ? "Next: Location & Time" : "Lanjut: Lokasi & Jadwal"}</span>
           </button>
@@ -511,14 +516,14 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="button"
             onClick={() => setStep(1)}
-            className="px-5 py-2.5 rounded-lg border border-[#C7AF90]/60 text-xs font-semibold text-[#534D2B] hover:bg-[#E6E2D3] min-h-[44px] transition-colors cursor-pointer"
+            className="px-6 py-3 rounded-xl border border-[#C7AF90]/60 text-sm sm:text-xs font-bold text-[#534D2B] hover:bg-neutral-100 min-h-[46px] transition-colors cursor-pointer"
           >
             {lang === 'en' ? "Back" : "Kembali"}
           </button>
           <button
             type="button"
             onClick={handleNextStep2}
-            className="px-7 py-3 rounded-lg bg-[#364A31] text-white text-sm font-semibold hover:bg-[#263A25] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
+            className="px-8 py-3.5 rounded-xl bg-[#364A31] text-white text-base sm:text-sm font-bold hover:bg-[#263A25] transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[48px] cursor-pointer"
           >
             <span>{lang === 'en' ? "Next: Guest Info" : "Lanjut: Data Pemesan"}</span>
           </button>
@@ -531,7 +536,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
           <button
             type="button"
             onClick={() => setStep(2)}
-            className="px-5 py-2.5 rounded-lg border border-[#C7AF90]/60 text-xs font-semibold text-[#534D2B] hover:bg-[#E6E2D3] min-h-[44px] transition-colors cursor-pointer"
+            className="px-6 py-3 rounded-xl border border-[#C7AF90]/60 text-sm sm:text-xs font-bold text-[#534D2B] hover:bg-neutral-100 min-h-[46px] transition-colors cursor-pointer"
           >
             {lang === 'en' ? "Back" : "Kembali"}
           </button>
@@ -547,7 +552,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 handleSubmit(e);
               }
             }}
-            className="px-8 py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-sm font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
+            className="px-8 py-4 rounded-xl bg-[#364A31] hover:bg-[#263A25] text-white text-base sm:text-sm font-bold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[48px] cursor-pointer"
           >
             <span>{lang === 'en' ? "Book via WhatsApp" : "Kirim Reservasi WhatsApp"}</span>
           </button>
@@ -584,16 +589,16 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     if (validateStep1() && validateStep2()) setStep(3);
                   }
                 }}
-                className={`flex items-center space-x-1.5 text-xs font-semibold transition-colors cursor-pointer shrink-0 px-2.5 py-1 rounded-full ${
+                className={`flex items-center space-x-1.5 text-sm sm:text-xs font-semibold transition-colors cursor-pointer shrink-0 px-3 py-1.5 sm:px-2.5 sm:py-1 rounded-full ${
                   step === s.num
                     ? 'bg-[#364A31] text-white shadow-xs'
                     : step > s.num
-                    ? 'text-[#364A31] hover:bg-[#E6E2D3]'
-                    : 'text-[#756B5C] hover:bg-[#E6E2D3]/50'
+                    ? 'text-[#364A31] bg-neutral-100 hover:bg-neutral-200'
+                    : 'text-[#756B5C] bg-neutral-100/70 hover:bg-neutral-100'
                 }`}
               >
                 <span
-                  className={`w-5 h-5 sm:w-5.5 sm:h-5.5 rounded-full flex items-center justify-center font-sans text-xs font-bold transition-all ${
+                  className={`w-6 h-6 sm:w-5.5 sm:h-5.5 rounded-full flex items-center justify-center font-sans text-xs font-bold transition-all ${
                     step === s.num
                       ? 'bg-white text-[#364A31] ring-2 ring-white/50 shadow-xs'
                       : step > s.num
@@ -603,7 +608,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 >
                   {s.num}
                 </span>
-                <span className="font-sans font-bold text-xs whitespace-nowrap">{s.label}</span>
+                <span className="font-sans font-bold text-sm sm:text-xs whitespace-nowrap">{s.label}</span>
               </button>
               {idx < 2 && (
                 <div
@@ -618,15 +623,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
       }
       footer={renderFooter()}
       maxWidth="max-w-3xl"
+      bgClassName="bg-white"
     >
       <div className="space-y-4 text-[#1B1B1B] -mt-2 sm:-mt-4">
-        <form id="booking-form" onSubmit={handleSubmit} className="space-y-4">
+        <form id="booking-form" onSubmit={(e) => {
+          e.preventDefault();
+          if (step === 3) {
+            const valid1 = validateStep1();
+            const valid2 = validateStep2();
+            const valid3 = validateStep3();
+            if (valid1 && valid2 && valid3) {
+              handleSubmit(e);
+            }
+          }
+        }} className="space-y-4">
           {/* STEP 1: DETAIL RESERVASI (Layanan & Jumlah Orang) */}
           {step === 1 && (
             <div className="space-y-4">
               {/* Pilihan Perawatan (Multi-Select) */}
               <div className="space-y-2.5">
-                <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                   {lang === 'en' ? "Treatment Selection *" : "Pilihan Perawatan (Bisa Lebih dari 1) *"}
                 </label>
 
@@ -637,13 +653,13 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                       {selectedLayananList.map((item) => (
                         <span
                           key={item}
-                          className="inline-flex items-center space-x-1.5 bg-[#E6E2D3] border border-[#C7AF90] text-[#302310] px-2.5 py-0.5 rounded-full shadow-xs"
+                          className="inline-flex items-center space-x-1.5 bg-white border border-[#364A31] text-[#302310] px-3 py-1 rounded-full shadow-xs"
                         >
-                          <span className="text-xs font-bold text-[#302310]">{item}</span>
+                          <span className="text-sm sm:text-xs font-bold text-[#302310]">{item}</span>
                           <button
                             type="button"
                             onClick={() => removeLayanan(item)}
-                            className="w-3.5 h-3.5 rounded-full bg-[#364A31]/15 hover:bg-[#364A31] hover:text-white flex items-center justify-center text-[#302310] text-xs leading-none transition-colors ml-0.5 cursor-pointer"
+                            className="w-4 h-4 rounded-full bg-[#364A31]/15 hover:bg-[#364A31] hover:text-white flex items-center justify-center text-[#302310] text-xs leading-none transition-colors ml-0.5 cursor-pointer"
                             title={lang === 'en' ? `Remove ${item}` : `Hapus ${item}`}
                           >
                             &times;
@@ -655,7 +671,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     <button
                       type="button"
                       onClick={clearAllLayanan}
-                      className="text-xs text-[#364A31] hover:text-[#263A25] font-bold hover:underline shrink-0 ml-auto cursor-pointer"
+                      className="text-sm sm:text-xs text-[#364A31] hover:text-[#263A25] font-bold hover:underline shrink-0 ml-auto cursor-pointer"
                     >
                       <span>{lang === 'en' ? "Clear All" : "Hapus Semua"}</span>
                     </button>
@@ -663,35 +679,35 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                 )}
 
                 {/* Multi-Select Options Grid (Direct cards without outer container box) */}
-                <div className="grid grid-cols-1 sm:grid-cols-2 gap-1.5 max-h-[280px] sm:max-h-[295px] overflow-y-auto p-1 pr-2">
+                <div className="grid grid-cols-1 sm:grid-cols-2 gap-2 max-h-[280px] sm:max-h-[295px] overflow-y-auto p-1 pr-2">
                   {allLayananOptions.map((item) => {
                     const isSelected = selectedLayananList.includes(item.title);
                     return (
                       <div
                         key={item.id}
                         onClick={() => toggleLayanan(item.title)}
-                        className={`p-3 sm:p-3.5 rounded-xl border-2 cursor-pointer transition-all flex items-center justify-between space-x-2 ${
+                        className={`p-3.5 rounded-xl border-2 cursor-pointer transition-all flex items-center justify-between space-x-2 bg-white hover:bg-white ${
                           isSelected
-                            ? 'bg-[#E6E2D3] border-[#364A31] shadow-xs'
-                            : 'bg-white border-[#C7AF90]/40 hover:border-[#364A31]/50 shadow-xs'
+                            ? 'border-[#364A31] ring-2 ring-[#364A31]/20 shadow-xs'
+                            : 'border-[#C7AF90]/40 shadow-xs'
                         }`}
                       >
                         <div className="space-y-0.5">
                           <span className="text-xs font-bold uppercase text-[#534D2B] tracking-wider block">
                             {item.category}
                           </span>
-                          <span className="font-serif text-sm sm:text-base font-bold text-[#302310]">
+                          <span className="font-serif text-base sm:text-base font-bold text-[#302310]">
                             {item.title}
                           </span>
                         </div>
                         <div
-                          className={`w-4 h-4 rounded-full border flex items-center justify-center flex-shrink-0 ${
+                          className={`w-5 h-5 rounded-full border flex items-center justify-center flex-shrink-0 ${
                             isSelected
                               ? 'bg-[#364A31] border-[#364A31] text-white'
                               : 'border-[#C7AF90]'
                           }`}
                         >
-                          {isSelected && <span className="text-[10px] font-bold leading-none">✓</span>}
+                          {isSelected && <span className="text-xs font-bold leading-none">✓</span>}
                         </div>
                       </div>
                     );
@@ -707,10 +723,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
               {/* Jumlah Orang */}
               <div className="space-y-2">
-                <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                   {lang === 'en' ? "Number of People *" : "Jumlah Orang *"}
                 </label>
-                <div className="grid grid-cols-3 gap-2.5 text-sm sm:text-base">
+                <div className="grid grid-cols-3 gap-2.5 text-base sm:text-base">
                   {[
                     { val: '1 Orang', label: lang === 'en' ? '1 Person' : '1 Orang' },
                     { val: '2 Orang', label: lang === 'en' ? '2 People' : '2 Orang' },
@@ -723,10 +739,10 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                         setFormData((p) => ({ ...p, jumlahOrang: item.val }));
                         if (errors.jumlahOrang) setErrors((prev) => ({ ...prev, jumlahOrang: '' }));
                       }}
-                      className={`py-3 px-2 rounded-xl border text-center transition-all min-h-[44px] cursor-pointer font-bold ${
+                      className={`py-3.5 px-2 rounded-xl border text-center transition-all min-h-[46px] cursor-pointer font-bold text-base sm:text-base ${
                         formData.jumlahOrang === item.val
                           ? 'bg-[#364A31] border-[#364A31] text-white shadow-xs'
-                          : 'bg-white border-[#C7AF90]/50 text-[#534D2B] hover:border-[#364A31]'
+                          : 'bg-white hover:bg-white border-[#C7AF90]/50 text-[#534D2B]'
                       }`}
                     >
                       {item.label}
@@ -748,7 +764,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Tipe Lokasi */}
                 <div className="space-y-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                  <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                     {lang === 'en' ? "Location Type *" : "Tipe Lokasi *"}
                   </label>
                   <CustomSelect
@@ -774,7 +790,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
                 {/* Area */}
                 <div className="space-y-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                  <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                     {lang === 'en' ? "Area Coverage *" : "Area Layanan *" }
                   </label>
                   <CustomSelect
@@ -805,7 +821,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
               {/* Alamat Lengkap */}
               <div className="space-y-1.5">
-                <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                   {lang === 'en' ? "Full Address / Hotel & Room No. *" : "Alamat Lengkap / Nama Hotel & No. Kamar *"}
                 </label>
                 <textarea
@@ -816,7 +832,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                     setFormData((p) => ({ ...p, alamatLengkap: e.target.value }));
                     if (errors.alamatLengkap) setErrors((prev) => ({ ...prev, alamatLengkap: '' }));
                   }}
-                  className="w-full px-5 py-3.5 rounded-xl bg-white border border-[#C7AF90]/60 text-sm sm:text-base font-semibold text-[#302310] shadow-xs focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200"
+                  className="w-full px-5 py-3.5 rounded-xl bg-white hover:bg-white focus:bg-white active:bg-white border border-[#C7AF90]/60 text-base sm:text-base font-semibold text-[#302310] shadow-xs focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200"
                 />
                 {errors.alamatLengkap && (
                   <p className="text-xs text-red-600 mt-1">
@@ -828,7 +844,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
               <div className="grid grid-cols-1 sm:grid-cols-2 gap-4">
                 {/* Hari & Tanggal */}
                 <div className="space-y-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                  <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                     {lang === 'en' ? "Date *" : "Hari & Tanggal *"}
                   </label>
                   <CustomDatePicker
@@ -852,7 +868,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
 
                 {/* Jam Mulai */}
                 <div className="space-y-1.5">
-                  <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                  <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                     {lang === 'en' ? "Start Time *" : "Jam Mulai *"}
                   </label>
                   <CustomSelect
@@ -888,7 +904,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             <div className="space-y-5">
               {/* Nama Pemesan */}
               <div className="space-y-1.5">
-                <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                   {lang === 'en' ? "Guest Full Name" : "Nama Pemesan"}
                 </label>
                 <input
@@ -897,20 +913,26 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   value={formData.nama}
                   onChange={(e) => {
                     setFormData((p) => ({ ...p, nama: e.target.value }));
+                    if (showNamaWarning) setShowNamaWarning(false);
                     if (errors.nama) setErrors((prev) => ({ ...prev, nama: '' }));
                   }}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-[#C7AF90]/60 text-base font-semibold text-[#302310] shadow-xs focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200 min-h-[46px]"
+                  className={`w-full px-5 py-3.5 rounded-xl bg-white hover:bg-white focus:bg-white active:bg-white border text-base sm:text-base font-semibold text-[#302310] shadow-xs focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200 min-h-[48px] ${
+                    showNamaWarning ? 'border-amber-500 ring-2 ring-amber-500/20' : 'border-[#C7AF90]/60'
+                  }`}
                 />
-                {errors.nama && (
-                  <p className="text-xs text-red-600 mt-1">
-                    <span>{errors.nama}</span>
-                  </p>
+                {showNamaWarning && (
+                  <div className="flex items-center space-x-2 p-3.5 rounded-xl bg-amber-50 border border-amber-300 text-amber-900 text-sm sm:text-base font-semibold animate-in fade-in duration-150">
+                    <svg className="w-5 h-5 text-amber-600 shrink-0" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                      <path strokeLinecap="round" strokeLinejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z" />
+                    </svg>
+                    <span>{lang === 'en' ? "Guest name is required before sending WhatsApp reservation." : "Nama Pemesan wajib diisi sebelum mengirim reservasi WhatsApp."}</span>
+                  </div>
                 )}
               </div>
 
               {/* Catatan Tambahan */}
               <div className="space-y-1.5">
-                <label className="text-xs sm:text-sm font-semibold text-[#1B1B1B] uppercase tracking-wider block">
+                <label className="text-sm sm:text-sm font-bold text-[#1B1B1B] uppercase tracking-wider block">
                   {lang === 'en' ? "Special Requests (Optional)" : "Catatan Tambahan (Opsional)"}
                 </label>
                 <textarea
@@ -918,7 +940,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
                   placeholder={lang === 'en' ? "e.g., Deep pressure on shoulders, allergic to lavender oil" : "contoh: Pijatan kencang di bahu, alergi minyak lavender"}
                   value={formData.catatanTambahan || ''}
                   onChange={(e) => setFormData((p) => ({ ...p, catatanTambahan: e.target.value }))}
-                  className="w-full px-4 py-3 rounded-xl bg-white border border-[#C7AF90]/60 text-base font-semibold text-[#302310] shadow-xs focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200"
+                  className="w-full px-5 py-3.5 rounded-xl bg-white hover:bg-white focus:bg-white active:bg-white border border-[#C7AF90]/60 text-base sm:text-base font-semibold text-[#302310] shadow-xs focus:outline-none focus:ring-4 focus:ring-[#364A31]/15 focus:border-[#364A31] transition-all duration-200"
                 />
               </div>
             </div>

@@ -20,8 +20,8 @@ export const SPA_INFO = {
   whatsappMessage: "Halo Lastri Spa Home Service, saya tertarik untuk pesan layanan anda",
   email: "anisdkill@gmail.com",
   hours: {
-    en: "Every Day: 08:00 AM – 10:00 PM (WIB)",
-    id: "Setiap Hari, 08.00 – 22.00 WIB"
+    en: "24 Hours / Every Day",
+    id: "24 Jam / Setiap Hari"
   },
   stats: [
     { label: { en: "Master Therapist Experience", id: "Pengalaman Terapis Master" }, value: "10+ Thn" },
