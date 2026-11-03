@@ -447,8 +447,7 @@ export const BookingModal: React.FC<BookingModalProps> = ({
   const validateAll = () => {
     const s1 = validateStep1();
     const s2 = validateStep2();
-    const s3 = validateStep3();
-    return s1 && s2 && s3;
+    return s1 && s2;
   };
 
   const handleNextStep1 = () => {
@@ -540,10 +539,12 @@ export const BookingModal: React.FC<BookingModalProps> = ({
             type="submit"
             form="booking-form"
             onClick={(e) => {
-              if (validateAll()) {
+              e.preventDefault();
+              const valid1 = validateStep1();
+              const valid2 = validateStep2();
+              const valid3 = validateStep3();
+              if (valid1 && valid2 && valid3) {
                 handleSubmit(e);
-              } else {
-                e.preventDefault();
               }
             }}
             className="px-8 py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-sm font-semibold tracking-wide transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] min-h-[44px] cursor-pointer"
