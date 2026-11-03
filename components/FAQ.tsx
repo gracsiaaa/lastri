@@ -21,13 +21,13 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
     <section id="faq" className="py-24 sm:py-32 bg-[#F8F5EE] relative overflow-hidden">
       <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 space-y-12">
         <div className="text-center max-w-2xl mx-auto space-y-4">
-          <span className="text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/50 inline-block">
+          <span className="text-sm font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/50 inline-block">
             {lang === 'en' ? "Got Questions?" : "Pusat Bantuan"}
           </span>
-          <h2 className="font-sans text-3xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
+          <h2 className="font-sans text-4xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
             {lang === 'en' ? "Frequently Asked Questions" : "Pertanyaan Umum (FAQ)"}
           </h2>
-          <p className="text-base sm:text-base text-[#534D2B] font-medium leading-[1.7]">
+          <p className="text-lg sm:text-base text-[#534D2B] font-medium leading-[1.7]">
             {lang === 'en'
               ? "General information and frequently asked questions regarding Lastri Spa Home Service."
               : "Informasi dan pertanyaan umum terkait Lastri Spa Home Service."}
@@ -46,7 +46,7 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
                   onClick={() => toggleAccordion(i)}
                   className="w-full px-5 sm:px-6 py-4 sm:py-5 text-left flex items-center justify-between space-x-4 focus:outline-none min-h-[44px] cursor-pointer"
                 >
-                  <span className="font-sans text-sm sm:text-base text-[#302310] font-bold leading-snug">
+                  <span className="font-sans text-base sm:text-base text-[#302310] font-bold leading-snug">
                     {faq.question[lang]}
                   </span>
                   <div
@@ -67,7 +67,7 @@ export const FAQ: React.FC<FAQProps> = ({ lang }) => {
                       transition={{ duration: 0.3 }}
                       className="overflow-hidden"
                     >
-                      <div className="px-5 sm:px-6 py-4 sm:py-5 text-sm sm:text-[15px] text-[#534D2B] font-medium leading-[1.75] border-t border-[#C7AF90]/40 bg-[#F8F5EE]/70">
+                      <div className="px-5 sm:px-6 py-4 sm:py-5 text-base sm:text-[15px] text-[#534D2B] font-medium leading-[1.75] border-t border-[#C7AF90]/40 bg-[#F8F5EE]/70">
                         {faq.answer[lang]}
                       </div>
                     </motion.div>

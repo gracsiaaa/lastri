@@ -34,11 +34,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="absolute top-6 sm:top-10 -left-4 sm:-left-8 bg-[#F0E7D8]/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl max-w-[220px] sm:max-w-[250px] shadow-xl border border-[#C7AF90]/60 space-y-1 hidden sm:block z-10">
               <div className="flex items-center space-x-1.5">
                 <Award className="w-4 h-4 text-[#364A31] flex-shrink-0" />
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#364A31]">
+                <span className="text-xs sm:text-xs font-bold uppercase tracking-wider text-[#364A31]">
                   {lang === 'en' ? "Experienced Therapists" : "Terapis Berpengalaman"}
                 </span>
               </div>
-              <p className="text-xs text-[#534D2B] font-semibold leading-relaxed">
+              <p className="text-sm text-[#534D2B] font-semibold leading-relaxed">
                 {lang === 'en'
                   ? "Over 10+ years dedicated to wellness."
                   : "Lebih dari 10 tahun berdedikasi dalam kebugaran."}
@@ -48,11 +48,11 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="absolute -bottom-6 right-6 sm:right-12 bg-[#E6E2D3]/95 backdrop-blur-md p-3 sm:p-3.5 rounded-2xl max-w-[220px] sm:max-w-[250px] shadow-xl border border-[#C7AF90]/60 space-y-1 hidden sm:block z-10">
               <div className="flex items-center space-x-1.5">
                 <Leaf className="w-4 h-4 text-[#364A31] flex-shrink-0" />
-                <span className="text-[11px] sm:text-xs font-bold uppercase tracking-wider text-[#364A31]">
+                <span className="text-xs sm:text-xs font-bold uppercase tracking-wider text-[#364A31]">
                   {lang === 'en' ? "Wild Botanicals" : "Bahan Organik Segar"}
                 </span>
               </div>
-              <p className="text-xs text-[#534D2B] font-semibold leading-relaxed">
+              <p className="text-sm text-[#534D2B] font-semibold leading-relaxed">
                 {lang === 'en'
                   ? "Hand-pressed daily using traditional mortars."
                   : "Diracik segar setiap pagi dari ramuan organik murni."}
@@ -62,15 +62,15 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
 
           <div className="lg:col-span-6 space-y-6">
             <div className="space-y-4">
-              <div className="inline-flex items-center space-x-2 text-xs sm:text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/40">
+              <div className="inline-flex items-center space-x-2 text-sm sm:text-xs font-bold uppercase tracking-widest text-[#364A31] bg-[#F0E7D8] px-3.5 py-1.5 rounded-full border border-[#C7AF90]/40">
                 <Leaf className="w-3.5 h-3.5 text-[#364A31]" />
                 <span>{lang === 'en' ? "Our Philosophy" : "Filosofi Relaksasi"}</span>
               </div>
 
-              <h2 className="font-serif text-3xl sm:text-4xl lg:text-5xl text-[#302310] font-semibold leading-tight">
+              <h2 className="font-serif text-4xl sm:text-4xl lg:text-5xl text-[#302310] font-semibold leading-tight">
                 {PHILOSOPHY_CONTENT.title[lang]}
               </h2>
-              <p className="text-base sm:text-base lg:text-lg text-[#534D2B] font-medium leading-[1.75]">
+              <p className="text-lg sm:text-base lg:text-lg text-[#534D2B] font-medium leading-[1.75]">
                 {PHILOSOPHY_CONTENT.story[lang]}
               </p>
             </div>
@@ -78,7 +78,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="pt-2">
               <button
                 onClick={onOpenAboutModal}
-                className="px-7 py-3.5 rounded-lg bg-[#364A31] text-[#FFFFFF] hover:bg-[#263A25] transition-all duration-300 text-sm font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] inline-flex items-center space-x-2.5 min-h-[44px] group cursor-pointer"
+                className="px-7 py-3.5 rounded-lg bg-[#364A31] text-[#FFFFFF] hover:bg-[#263A25] transition-all duration-300 text-base sm:text-sm font-semibold shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] inline-flex items-center space-x-2.5 min-h-[44px] group cursor-pointer"
               >
                 <span>{lang === 'en' ? "Read Our Full Story" : "Baca Selengkapnya"}</span>
                 <ArrowRight className="w-4 h-4 text-white group-hover:translate-x-1 transition-transform" />

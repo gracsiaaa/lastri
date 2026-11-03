@@ -55,12 +55,12 @@ export const Footer: React.FC<FooterProps> = ({
               </div>
             </div>
 
-            <p className="text-sm text-[#F0E7D8]/90 font-medium leading-[1.7] max-w-md">
+            <p className="text-base text-[#F0E7D8]/90 font-medium leading-[1.7] max-w-md">
               {SPA_INFO.subtagline[lang]}
             </p>
 
             <div className="pt-2 flex items-center space-x-3">
-              <span className="text-xs text-[#E6E2D3]/80 font-semibold uppercase tracking-wider">Sosmed & Kontak:</span>
+              <span className="text-sm text-[#E6E2D3]/80 font-semibold uppercase tracking-wider">Sosmed & Kontak:</span>
               
               <a
                 href="https://tiktok.com"
@@ -90,8 +90,8 @@ export const Footer: React.FC<FooterProps> = ({
             </div>
           </div>
 
-          <div className="md:col-span-3 space-y-3.5 text-xs sm:text-sm">
-            <span className="font-serif text-base text-[#F8F5EE] font-bold block">
+          <div className="md:col-span-3 space-y-3.5 text-sm sm:text-sm">
+            <span className="font-serif text-lg text-[#F8F5EE] font-bold block">
               {lang === 'en' ? "Quick Menu" : "Menu Utama"}
             </span>
             <ul className="space-y-2.5 text-[#F0E7D8]/85 font-medium">
@@ -106,17 +106,17 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
 
           <div className="md:col-span-4 bg-[#534D2B]/50 p-6 rounded-2xl border border-[#C7AF90]/40 space-y-3.5">
-            <span className="font-serif text-base text-[#F8F5EE] font-bold block">
+            <span className="font-serif text-lg text-[#F8F5EE] font-bold block">
               {lang === 'en' ? "Online Reservation" : "Reservasi Layanan Spa"}
             </span>
-            <p className="text-xs text-[#F0E7D8]/90 font-medium leading-[1.7]">
+            <p className="text-sm text-[#F0E7D8]/90 font-medium leading-[1.7]">
               {lang === 'en'
                 ? "Book your favorite home spa treatments easily through our direct online reservation form."
                 : "Pesan perawatan spa home service favorit Anda dengan mudah dan cepat melalui formulir reservasi online kami."}
             </p>
             <button
               onClick={onOpenBooking}
-              className="w-full py-3 px-5 rounded-lg bg-[#F8F5EE] hover:bg-[#F0E7D8] text-[#302310] text-xs sm:text-sm font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
+              className="w-full py-3 px-5 rounded-lg bg-[#F8F5EE] hover:bg-[#F0E7D8] text-[#302310] text-sm sm:text-sm font-bold transition-all duration-300 shadow-md hover:shadow-lg hover:scale-[1.02] active:scale-[0.98] flex items-center justify-center space-x-2 min-h-[44px] cursor-pointer"
             >
               <Calendar className="w-4 h-4 text-[#364A31]" />
               <span>{lang === 'en' ? "Book a Session" : "Pesan Perawatan"}</span>
@@ -124,7 +124,7 @@ export const Footer: React.FC<FooterProps> = ({
           </div>
         </div>
 
-        <div className="pt-8 border-t border-[#C7AF90]/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-xs text-[#E6E2D3]/85 font-medium">
+        <div className="pt-8 border-t border-[#C7AF90]/25 flex flex-col sm:flex-row items-center justify-between gap-4 text-sm text-[#E6E2D3]/85 font-medium">
           <p>
             &copy; {new Date().getFullYear()} Lastri Spa Home Service Banyuwangi. All rights reserved.
           </p>

@@ -158,7 +158,7 @@ export const Navbar: React.FC<NavbarProps> = ({
             className="lg:hidden glass-nav border-b border-[#C7AF90]/40 overflow-hidden"
           >
             <div className="px-6 py-6 space-y-4">
-              <nav className="flex flex-col space-y-3 text-base font-serif font-semibold text-[#302310]">
+              <nav className="flex flex-col space-y-3 text-lg font-serif font-semibold text-[#302310]">
                 {navLinks.map((link) => (
                   <a
                     key={link.href}
@@ -177,7 +177,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                     setMobileMenuOpen(false);
                     onOpenBooking();
                   }}
-                  className="w-full py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-sm font-semibold flex items-center justify-center space-x-2 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 min-h-[44px] cursor-pointer"
+                  className="w-full py-3.5 rounded-lg bg-[#364A31] hover:bg-[#263A25] text-white text-base font-semibold flex items-center justify-center space-x-2 shadow-md hover:shadow-lg hover:scale-[1.01] active:scale-[0.98] transition-all duration-300 min-h-[44px] cursor-pointer"
                 >
                   <Calendar className="w-4 h-4" />
                   <span>{lang === 'en' ? "Book Now" : "Pesan Sekarang"}</span>
