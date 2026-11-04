@@ -40,8 +40,13 @@ export const metadata: Metadata = {
   creator: "Lastri Spa",
   publisher: "Lastri Spa",
   icons: {
-    icon: "/favicon.ico",
-    apple: "/logo.jpg",
+    icon: [
+      { url: "/icon.png", sizes: "192x192", type: "image/png" },
+      { url: "/favicon-32x32.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon.ico", sizes: "any" },
+    ],
+    shortcut: "/favicon.ico",
+    apple: "/apple-touch-icon.png",
   },
   alternates: {
     canonical: siteUrl,
@@ -151,7 +156,10 @@ export default function RootLayout({
       className={`${playfair.variable} ${inter.variable} scroll-smooth antialiased`}
     >
       <head>
-        <link rel="apple-touch-icon" href="/logo.jpg" />
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png" />
+        <link rel="icon" type="image/png" sizes="192x192" href="/icon.png" />
+        <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
         <script
           type="application/ld+json"
           dangerouslySetInnerHTML={{ __html: JSON.stringify(localBusinessSchema) }}
