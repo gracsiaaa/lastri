@@ -58,7 +58,7 @@ export const Navbar: React.FC<NavbarProps> = ({
                 if (fallback) fallback.style.display = 'flex';
               }
             }}
-            alt="Lastri Spa Logo"
+            alt="Logo Lastri Spa Banyuwangi"
             className="h-10 w-auto object-contain rounded-lg group-hover:scale-105 transition-transform"
           />
           <div id="navbar-logo-icon-fallback" className="hidden w-9 h-9 rounded-full bg-[#364A31] text-[#F8F5EE] items-center justify-center font-serif text-lg font-bold group-hover:scale-105 transition-transform shadow-xs">

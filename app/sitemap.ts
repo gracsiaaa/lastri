@@ -1,14 +1,12 @@
 import { MetadataRoute } from 'next';
 
 export default function sitemap(): MetadataRoute.Sitemap {
-  const baseUrl = process.env.NEXT_PUBLIC_SITE_URL || 'https://lastri.vercel.app';
-
   return [
     {
-      url: baseUrl,
+      url: 'https://lastrispa.com',
       lastModified: new Date(),
       changeFrequency: 'weekly',
-      priority: 1.0,
+      priority: 1,
     },
   ];
 }

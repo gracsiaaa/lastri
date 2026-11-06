@@ -44,7 +44,7 @@ export const SignaturePackages: React.FC<SignaturePackagesProps> = ({
                     onError={(e) => {
                       (e.target as HTMLImageElement).src = '/spa1.jpg';
                     }}
-                    alt={pkg.title[lang]}
+                    alt={`${pkg.title[lang]} - Paket Layanan Lastri Spa Banyuwangi`}
                     className="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500"
                   />
                   <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent" />

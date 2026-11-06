@@ -119,7 +119,7 @@ export const AboutModal: React.FC<AboutModalProps> = ({
               <div className="w-full sm:w-36 md:w-40 lg:w-44 h-48 sm:h-auto min-h-[180px] rounded-xl overflow-hidden flex-shrink-0 relative border border-[#C7AF90]/60 shadow-xs self-stretch bg-[#E6E2D3]">
                 <Image
                   src={therapist.photo}
-                  alt={therapist.name}
+                  alt={`${therapist.name} - Terapis Lastri Spa Banyuwangi`}
                   fill
                   sizes="(max-width: 640px) 100vw, 180px"
                   className="object-cover"

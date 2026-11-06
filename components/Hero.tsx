@@ -1,6 +1,7 @@
 'use client';
 
 import React, { useState, useEffect } from 'react';
+import Image from 'next/image';
 import { Language } from '../types';
 import { SPA_INFO, getWhatsAppUrl } from '../data/spaData';
 import { ArrowDown, MessageSquare } from 'lucide-react';
@@ -31,16 +32,15 @@ export const Hero: React.FC<HeroProps> = ({ lang, onOpenBooking }) => {
     <section className="relative min-h-screen md:min-h-[140vh] flex flex-col justify-start items-center overflow-hidden bg-[#1D1914]">
       <div className="absolute inset-0 overflow-hidden pointer-events-none z-0">
         <motion.div
-          style={{ y: isMobile ? 0 : scrollY }}
+          style={{ y: isMobile ? 0 : scrollY, scale: isMobile ? 1 : backgroundScale }}
           className="absolute top-0 left-0 w-full h-full md:h-screen will-change-transform"
         >
-          <motion.img
+          <Image
             src="/spa1.jpg"
-            onError={(e) => {
-              (e.target as HTMLImageElement).src = '/spa1.jpg';
-            }}
-            alt="Lastri Spa Sanctuary Ambience"
-            style={{ scale: isMobile ? 1 : backgroundScale }}
+            alt="Layanan Spa dan Pijat Panggilan Lastri Spa Banyuwangi"
+            fill
+            priority
+            sizes="100vw"
             className="w-full h-full object-cover will-change-transform"
           />
 

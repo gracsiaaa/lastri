@@ -107,7 +107,7 @@ export const GalleryModal: React.FC<GalleryModalProps> = ({
           >
             <img
               src={item.image || '/spa1.jpg'}
-              alt={itemTitle}
+              alt={`${itemTitle} - Galeri Lastri Spa Banyuwangi`}
               className="w-full h-full object-contain select-none"
             />
 

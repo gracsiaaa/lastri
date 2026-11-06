@@ -36,7 +36,7 @@ export const PackageModal: React.FC<PackageModalProps> = ({
         <div className="relative rounded-2xl overflow-hidden h-56 sm:h-64 shadow-sm border border-[#E0E0E0]">
           <img
             src={pkg.image}
-            alt={titleText}
+            alt={`${titleText} - Paket Layanan Lastri Spa Banyuwangi`}
             className="w-full h-full object-cover"
           />
           <div className="absolute inset-0 bg-gradient-to-t from-black/70 via-black/20 to-transparent flex items-end p-4 sm:p-6">

@@ -41,7 +41,7 @@ export const TreatmentModal: React.FC<TreatmentModalProps> = ({
           <div className="relative rounded-2xl overflow-hidden h-56 sm:h-72 group shadow-sm border border-[#C7AF90]/50 bg-[#E6E2D3]">
             <Image
               src={currentImg}
-              alt={treatment.name}
+              alt={`${treatment.name} - Lastri Spa Banyuwangi`}
               fill
               sizes="(max-width: 768px) 100vw, 768px"
               className="object-cover"

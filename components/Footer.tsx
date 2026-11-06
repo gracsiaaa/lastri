@@ -42,7 +42,7 @@ export const Footer: React.FC<FooterProps> = ({
                     if (fallback) fallback.style.display = 'flex';
                   }
                 }}
-                alt="Lastri Spa Logo"
+                alt="Logo Lastri Spa Banyuwangi"
                 className="h-11 w-auto object-contain rounded-lg"
               />
               <div id="footer-logo-fallback" className="hidden items-center space-x-2.5">

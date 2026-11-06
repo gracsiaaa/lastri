@@ -79,7 +79,7 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
               >
                 <Image
                   src={item.image || '/spa1.jpg'}
-                  alt={item.title[lang]}
+                  alt={`${item.title[lang]} - Galeri Lastri Spa Banyuwangi`}
                   fill
                   sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                   className="object-cover group-hover:scale-108 transition-transform duration-700"

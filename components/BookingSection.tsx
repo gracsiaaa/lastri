@@ -97,7 +97,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
           <div className="lg:col-span-7 bg-[#E6E2D3] rounded-2xl overflow-hidden relative min-h-[380px] shadow-sm flex flex-col justify-end border border-[#C7AF90]/50">
             <Image
               src="/spa3.jpg"
-              alt="Banyuwangi Sanctuary Map Area"
+              alt="Layanan Panggilan Spa Banyuwangi Lastri Spa"
               fill
               sizes="(max-width: 1024px) 100vw, 60vw"
               className="object-cover"

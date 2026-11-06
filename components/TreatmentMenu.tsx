@@ -97,7 +97,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
                     <div className="relative h-56 overflow-hidden bg-[#E6E2D3]">
                       <Image
                         src={currentImg}
-                        alt={treatment.name}
+                        alt={`${treatment.name} - Lastri Spa Banyuwangi`}
                         fill
                         sizes="(max-width: 640px) 100vw, (max-width: 1024px) 50vw, 33vw"
                         className="object-cover group-hover:scale-105 transition-transform duration-500"

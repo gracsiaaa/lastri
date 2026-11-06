@@ -23,7 +23,7 @@ export const AboutSection: React.FC<AboutSectionProps> = ({
             <div className="relative rounded-3xl overflow-hidden shadow-xl aspect-4/3 sm:aspect-16/10 lg:aspect-4/3 max-h-[420px] border border-[#C7AF90]/40">
               <Image
                 src="/spa6.jpg"
-                alt="Sanctuary Organic Botanical Healing"
+                alt="Layanan Relaksasi Alami Lastri Spa Banyuwangi"
                 fill
                 sizes="(max-width: 1024px) 100vw, 50vw"
                 className="object-cover"
