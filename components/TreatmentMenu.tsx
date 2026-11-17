@@ -45,7 +45,7 @@ export const TreatmentMenu: React.FC<TreatmentMenuProps> = ({
             {lang === 'en' ? "Signature Care" : "Menu Perawatan"}
           </span>
           <h2 className="font-sans text-3xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
-            {lang === 'en' ? "Holistic Treatment Menu" : "Menu Perawatan Spa"}
+            {lang === 'en' ? "Spa & Massage Treatments" : "Menu Perawatan Spa & Pijat Banyuwangi"}
           </h2>
           <p className="text-sm sm:text-base text-[#534D2B] font-medium leading-[1.7]">
             {lang === 'en'

@@ -7,12 +7,12 @@ export const SPA_INFO = {
     id: "Layanan Pijat Panggilan Terbaik di Banyuwangi"
   },
   headline: {
-    en: "Enjoy a Premium Spa Experience, Right at Your Doorstep.",
-    id: "Nikmati Pengalaman Spa Premium di Tempat Anda"
+    en: "Professional Spa & Massage Home Service in Banyuwangi",
+    id: "Spa & Pijat Panggilan Profesional di Banyuwangi"
   },
   subtagline: {
-    en: "No need to travel for a spa experience. Enjoy personalized treatments in the comfort of your home, hotel, or villa, delivered by our professional female therapists.",
-    id: "Tak perlu bepergian untuk menikmati perawatan spa. Kami hadir di rumah, hotel, atau vila Anda dengan layanan personal dari terapis wanita profesional"
+    en: "Certified female therapists come directly to your home, hotel, or villa in Banyuwangi with complete sterile equipment and pure aromatherapy oils. Available 24 hours.",
+    id: "Terapis wanita bersertifikat hadir langsung ke rumah, hotel, atau vila Anda di Banyuwangi dengan peralatan steril lengkap dan minyak aromaterapi murni. Tersedia 24 jam."
   },
   address: "Layanan Panggilan / On-Call ke Rumah, Hotel & Vila (Area Klatak, Kota Banyuwangi, Giri, Glagah, Licin, Kabat & Sekitarnya)",
   phone: "0895347499653",

@@ -25,7 +25,7 @@ export const BookingSection: React.FC<BookingSectionProps> = ({
             {lang === 'en' ? "Get in Touch" : "Kontak & Reservasi"}
           </span>
           <h2 className="font-sans text-3xl sm:text-5xl text-[#302310] font-semibold tracking-tight">
-            {lang === 'en' ? "Book Lastri Home Spa Services" : "Pesan Layanan Lastri Home Spa"}
+            {lang === 'en' ? "Book Spa Home Service in Banyuwangi" : "Pesan Pijat Panggilan & Spa Banyuwangi"}
           </h2>
           <p className="text-sm sm:text-base text-[#534D2B] font-medium leading-[1.7]">
             {lang === 'en'

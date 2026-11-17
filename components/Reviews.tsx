@@ -15,7 +15,8 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
   const resumeTimeoutRef = useRef<NodeJS.Timeout | null>(null);
 
   // Triple items for seamless continuous marquee loop
-  const loopedReviews = [...reviewsData, ...reviewsData, ...reviewsData];
+  // Only first set visible to search engines; duplicates are aria-hidden
+  const singleReviews = reviewsData;
 
   const handleScroll = (direction: 'left' | 'right') => {
     if (scrollRef.current) {
@@ -103,9 +104,11 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
           }}
           className="flex gap-6 overflow-x-auto pb-6 pt-2 no-scrollbar"
         >
-          {loopedReviews.map((review, i) => (
+          {[0, 1, 2].map((setIndex) =>
+            singleReviews.map((review, i) => (
             <div
-              key={`${review.id}-${i}`}
+              key={`${review.id}-${setIndex}-${i}`}
+              aria-hidden={setIndex > 0 ? true : undefined}
               className="flex-shrink-0 w-[88%] sm:w-[350px] lg:w-[calc(33.333%-16px)] bg-[#F8F5EE] rounded-2xl p-6 sm:p-7 border border-[#C7AF90]/50 shadow-[0_4px_16px_rgba(48,35,16,0.06)] hover:shadow-xl hover:border-[#364A31]/40 transition-all duration-300 flex flex-col justify-between space-y-6"
             >
               <div className="space-y-4">
@@ -138,7 +141,8 @@ export const Reviews: React.FC<ReviewsProps> = ({ lang }) => {
                 </div>
               </div>
             </div>
-          ))}
+          ))
+          )}
         </div>
       </div>
     </section>

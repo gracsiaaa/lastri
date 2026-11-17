@@ -96,9 +96,9 @@ export const SanctuaryGallery: React.FC<SanctuaryGalleryProps> = ({
                     <span className="text-[10px] font-bold uppercase tracking-wider bg-[#364A31] px-2.5 py-1 rounded-full w-max block border border-[#C7AF90]/40 text-[#F8F5EE]">
                       {item.category}
                     </span>
-                    <h3 className="font-serif text-lg font-bold text-[#F8F5EE] leading-snug">
+                    <p className="font-serif text-lg font-bold text-[#F8F5EE] leading-snug">
                       {item.title[lang]}
-                    </h3>
+                    </p>
                     <p className="text-xs text-[#F8F5EE]/90 font-medium line-clamp-2 leading-relaxed">
                       {item.description[lang]}
                     </p>
